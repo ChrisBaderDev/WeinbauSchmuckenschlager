@@ -1,0 +1,43 @@
+---
+const MenuLinks = [
+    {
+        label: "Home",
+        href: "/"
+    },
+    {
+        label: "News",
+        href: "#news"
+    },
+    {
+        label: "Shop",
+        href: "https://www.shop-weinbau-schmuckenschlager.com/"
+    },
+    {
+        label: "Familie",
+        href: "#familie"
+    },
+    {
+        label: "Kontakt",
+        href: "#kontakt"
+    },
+    {
+        label: "Römerl",
+        href: "/roemerl"
+    }
+]
+---
+<header class="flex flex-row items-center justify-between bg-black h-(--header-height)">
+    <div class="flex items-center h-full p-5">
+        <img class="w-20 mx-3" src="/logo.png" alt="Logo" />
+        <h2 class="text-white mx-5 text-2xl">Weinbau Schmuckenschlager</h2>
+    </div>
+    <menu class="flex items-center h-full p-5">
+        <ul class="flex flex-row gap-6">
+            {MenuLinks.map((link) => (
+                <li>
+                    <a class="text-white hover:text-gray-500 [font-family:var(--font-playfair)]" href={link.href}>{link.label}</a>
+                </li>
+            ))}
+        </ul>
+    </menu>
+</header>

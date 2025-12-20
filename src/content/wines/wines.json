@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Grüner Veltliner",
+        "year": 2023,
+        "image": "./images/wein.png"
+    },
+    {
+        "name": "Riesling",
+        "year": 2022,
+        "image": "./images/wein.png"
+    },
+    {
+        "name": "Zweigelt",
+        "year": 2021,
+        "image": "./images/wein.png"
+    },
+    {
+        "name": "Grüner Veltliner",
+        "year": 2023,
+        "image": "./images/wein.png"
+    },
+    {
+        "name": "Riesling",
+        "year": 2022,
+        "image": "./images/wein.png"
+    },
+    {
+        "name": "Zweigelt",
+        "year": 2021,
+        "image": "./images/wein.png"
+    }
+]

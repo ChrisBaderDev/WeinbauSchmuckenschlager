@@ -1,16 +1,19 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/site/index/Hero.astro';
+import OpeningHours from '../components/site/index/OpeningHours.astro'
+import News from '../components/site/index/News.astro'
+import WineGallery from '../components/site/index/WineGallery.astro'
+import Events from '../components/site/index/Events.astro'
+import Family from '../components/site/index/Family.astro'
+import Contact from '../components/site/index/Contact.astro'
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home">
+	<Hero />
+	<OpeningHours />
+	<News />
+	<WineGallery />
+	<Events />
+	<Family />
+	<Contact />
+</BaseLayout>

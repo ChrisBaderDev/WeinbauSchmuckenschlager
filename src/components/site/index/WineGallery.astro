@@ -1,0 +1,48 @@
+---
+import { getEntry } from "astro:content";
+import { Image } from "astro:assets";
+import VerticalLine from "../../animation/VerticalLine.astro";
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+
+const winesEntry = await getEntry("wines", "wines");
+const wines = winesEntry?.data ?? [];
+---
+
+<section>
+  <HorizontalLine direction="right" color="black" width="100%" />
+  <div class="relative">
+    <Image
+      class="w-full object-cover h-100"
+      src="/Lese.jpg"
+      alt="Lese"
+      width={100}
+      height={100}
+    />
+    <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+      <h2 class="text-white text-4xl">Unsere Weine</h2>
+    </div>
+  </div>
+
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="wine-gallery-wrapper overflow-hidden">
+    <div
+      class="wine-gallery flex gap-8 py-8 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth"
+    >
+      {
+        wines.map((wine: any) => (
+          <a class="wine-card shrink-0 w-64 snap-center" href="https://www.shop-weinbau-schmuckenschlager.com/">
+            <Image
+              src={wine.image}
+              alt={wine.name}
+              class="w-full h-80 object-contain"
+            />
+            <div class="mt-4 text-center">
+              <h3 class="text-xl">{wine.name}</h3>
+              <p class="text-gray-600">{wine.year}</p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

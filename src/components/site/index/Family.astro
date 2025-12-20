@@ -1,0 +1,20 @@
+---
+import HorizontalLine from '../../animation/HorizontalLine.astro';
+import { Image } from 'astro:assets';
+---
+<section class="h-[50vh]">
+    <HorizontalLine direction="left" color="black" width="100%" />
+    <!-- Image Section Title -->
+    <div class="relative">
+        <Image
+          class="w-full object-cover h-80"
+          src="/vineyard.jpg"
+          alt="Lese"
+          width={100}
+          height={100}
+        />
+        <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+          <h2 class="text-white text-4xl">Die Familie</h2>
+        </div>
+      </div>
+</section>
