@@ -3,10 +3,10 @@ import HorizontalLine from "../../animation/HorizontalLine.astro";
 ---
 <!-- TODO FIX  -->
 <HorizontalLine direction="left" color="black" width="100%" />
-<section id="newsletter-form" class="p-10">
+<section class="p-10">
   <h2>Newsletter</h2>
   <p>Sollen wir dich auf dem Laufenden halten?</p>
-  <form>
+  <form id="newsletter-form">
     <label class="flex flex-col text-sm py-5">
       E-Mail-Adresse *
       <input
@@ -22,13 +22,13 @@ import HorizontalLine from "../../animation/HorizontalLine.astro";
         type="submit">Anmelden</button
       >
   </form>
-  <div id="success-message" class="hidden text-center py-12">
+  <div id="newsletter-success-message" class="hidden text-center py-12">
     <h3 class="text-2xl mb-4">Vielen Dank!</h3>
     <p class="text-gray-600">
       Wir haben deine Nachricht erhalten und melden uns bald.
     </p>
   </div>
-  <div id="failure-message" class="hidden text-center py-12">
+  <div id="newsletter-failure-message" class="hidden text-center py-12">
     <h3 class="text-2xl mb-4">Es gab ein Problem mit der Absendung!</h3>
     <p class="text-gray-600">
       Leider konnten wir Sie nicht für den Newsletter anmelden. Bitte versuchen Sie es erneut.
@@ -38,8 +38,8 @@ import HorizontalLine from "../../animation/HorizontalLine.astro";
 
 <script>
   const form = document.getElementById("newsletter-form") as HTMLFormElement;
-  const successMessage = document.getElementById("success-message");
-  const failureMessage = document.getElementById("failure-message");
+  const successMessage = document.getElementById("newsletter-success-message");
+  const failureMessage = document.getElementById("newsletter-failure-message");
 
   form?.addEventListener("submit", async (e) => {
     e.preventDefault();

@@ -45,5 +45,18 @@ const history = defineCollection({
       })
     ),
 });
+const openingMonths = defineCollection({
+  type: "data",
+  schema: z.array(
+    z.object({
+      month: z.string(),       // "Februar", "März", etc.
+      startDate: z.string(),   // "01. Feb."
+      endDate: z.string(),     // "14. Feb."
+      year: z.number(),        // 2025
+    })
+  ),
+});
 
-export const collections = { wines, events, family, history };
+
+
+export const collections = { wines, events, family, history, openingMonths };

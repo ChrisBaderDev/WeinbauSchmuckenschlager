@@ -3,10 +3,16 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 import HorizontalLine from '../../animation/HorizontalLine.astro';
 import VerticalLine from '../../animation/VerticalLine.astro';
-const events = await getCollection('events');
+
+const allEvents = await getCollection('events');
+
+// Sort by date (newest first) and take last 3 upcoming/recent
+const events = allEvents
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
 ---
 
-<section class="p-0 min-h-[75vh]">
+<section class="p-0">
     <HorizontalLine direction="left" color="black" width="100%" />
     <div class="flex justify-center items-center w-full py-10">
         <h2>Unsere Veranstaltungen</h2>
@@ -15,7 +21,6 @@ const events = await getCollection('events');
     
     <div class="overflow-hidden p-0 h-full">
         <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth">
-
             {events.map((event) => (
                 <a 
                     href={`/events/${event.id}`} 
@@ -38,8 +43,19 @@ const events = await getCollection('events');
                         </p>
                     </div>
                 </a>
-            <VerticalLine direction="top" color="black" />
+                <VerticalLine direction="top" color="black" />
             ))}
         </div>
+    </div>
+
+    <!-- Show All Link -->
+    <div class="flex justify-center py-20">
+        <a 
+            href="/events" 
+            class="text-lg hover:underline flex items-center gap-2"
+        >
+            Alle Veranstaltungen anzeigen
+            <span>→</span>
+        </a>
     </div>
 </section>

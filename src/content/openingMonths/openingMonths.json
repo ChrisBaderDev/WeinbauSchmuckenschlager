@@ -1,0 +1,44 @@
+[
+    {
+      "month": "Dezember",
+      "startDate": "01. Dez.",
+      "endDate": "13. Dez.",
+      "year": 2025
+    },
+    {
+      "month": "Februar",
+      "startDate": "01. Feb.",
+      "endDate": "14. Feb.",
+      "year": 2026
+    },
+    {
+      "month": "März",
+      "startDate": "02. März",
+      "endDate": "14. März",
+      "year": 2026
+    },
+    {
+      "month": "April",
+      "startDate": "17. Apr.",
+      "endDate": "25. Apr.",
+      "year": 2026
+    },
+    {
+      "month": "September",
+      "startDate": "07. Sep.",
+      "endDate": "12. Sep.",
+      "year": 2026
+    },
+    {
+      "month": "Oktober",
+      "startDate": "09. Okt.",
+      "endDate": "23. Okt.",
+      "year": 2026
+    },
+    {
+      "month": "November/Dezember",
+      "startDate": "27. Nov.",
+      "endDate": "07. Dez.",
+      "year": 2026
+    }
+  ]
