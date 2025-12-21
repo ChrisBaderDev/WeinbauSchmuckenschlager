@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+
+const historyData = await getEntry("history", "history");
+const historyItems = historyData!.data;
+---
+
+<section id="geschichte">
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="flex flex-col w-full justify-center items-center py-10">
+    <h2>Unsere Geschichte</h2>
+  </div>
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <div class="flex flex-col md:flex-row min-h-[70vh]">
+    <!-- Image Side -->
+    <div class="w-full md:w-1/2 relative overflow-hidden h-[50vh] md:h-auto">
+      {
+        historyItems.map((item, index) => (
+          <div
+            class="history-slide absolute inset-0 opacity-0 transition-opacity duration-500"
+            data-index={index}
+          >
+            <Image
+              src={item.image}
+              alt={item.title}
+              class="w-full h-full object-cover"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Content Side -->
+    <div class="w-full md:w-1/2 p-8 md:p-16 flex flex-col">
+      <!-- Navigation -->
+      <div class="flex justify-end gap-4 mb-8">
+        <button
+          id="prev-btn"
+          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black transition-colors"
+        >
+          ←
+        </button>
+        <button
+          id="next-btn"
+          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black transition-colors"
+        >
+          →
+        </button>
+      </div>
+
+      <!-- Text Content -->
+      <div class="flex-1 flex flex-col justify-center">
+        {
+          historyItems.map((item, index) => (
+            <div class="history-content hidden" data-index={index}>
+              <h3 class="text-3xl mb-6">{item.title}</h3>
+              <p class="text-gray-700 leading-relaxed">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".history-slide");
+  const contents = document.querySelectorAll(".history-content");
+  const total = slides.length;
+
+  function showSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("opacity-0", i !== index);
+      slide.classList.toggle("opacity-100", i === index);
+    });
+    contents.forEach((content, i) => {
+      content.classList.toggle("hidden", i !== index);
+    });
+  }
+
+  // Initialize first slide
+  showSlide(0);
+
+  document.getElementById("prev-btn")?.addEventListener("click", () => {
+    currentIndex = (currentIndex - 1 + total) % total;
+    showSlide(currentIndex);
+  });
+
+  document.getElementById("next-btn")?.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % total;
+    showSlide(currentIndex);
+  });
+</script>
+
+<style>
+  .history-slide {
+    z-index: 0;
+  }
+  .history-slide.opacity-100 {
+    z-index: 1;
+  }
+</style>

@@ -24,7 +24,7 @@ const events = defineCollection({
 });
 
 const family = defineCollection({
-  type: "content",
+  type: "data",
   schema: ({ image }) =>
     z.object({
       name: z.string(),
@@ -35,13 +35,15 @@ const family = defineCollection({
 });
 
 const history = defineCollection({
-    type: "content",
-    schema: ({ image }) =>
+  type: "data",
+  schema: ({ image }) =>
+    z.array(
       z.object({
         title: z.string(),
         description: z.string(),
         image: image(),
-      }),
-  });
+      })
+    ),
+});
 
 export const collections = { wines, events, family, history };

@@ -1,20 +1,60 @@
 ---
-import HorizontalLine from '../../animation/HorizontalLine.astro';
-import { Image } from 'astro:assets';
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const familyMembers = await getCollection("family");
+console.log(familyMembers);
 ---
-<section class="h-[50vh]" id="familie">
-    <HorizontalLine direction="left" color="black" width="100%" />
-    <!-- Image Section Title -->
-    <div class="relative">
-        <Image
-          class="w-full object-cover h-80"
-          src="/vineyard.jpg"
-          alt="Lese"
-          width={100}
-          height={100}
-        />
-        <div class="absolute inset-0 flex items-center justify-center bg-black/40">
-          <h2 class="text-white text-4xl">Die Familie</h2>
-        </div>
-      </div>
+
+<section id="familie" class="flex flex-col justify-center items-center">
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="relative w-full">
+    <img class="w-full object-cover h-80" src="/vineyard.jpg" alt="Lese" />
+    <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+      <h2 class="text-white text-4xl">Die Familie</h2>
+    </div>
+  </div>
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <!-- Family Members -->
+  <div
+    class="flex overflow-x-auto snap-x snap-mandatory gap-10 p-10
+    md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible max-w-[1600px]"
+  >
+    {
+      familyMembers.map((member) => (
+        <article
+          class="
+        shrink-0 w-[80vw] snap-center
+        md:w-auto md:snap-align-none
+        bg-white
+      "
+        >
+          <div class="aspect-square overflow-hidden">
+            <Image
+              src={member.data.image}
+              alt={member.data.name}
+              class="w-full h-full object-cover border"
+            />
+          </div>
+          <div class="py-4">
+            <h3 class="text-xl">{member.data.name}</h3>
+            <p class="text-sm text-gray-500 mb-2">{member.data.role}</p>
+            <p>{member.data.description}</p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
 </section>
+
+<style>
+  .overflow-x-auto {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+</style>
