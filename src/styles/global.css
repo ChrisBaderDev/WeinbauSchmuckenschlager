@@ -59,4 +59,13 @@
     font-size: var(--text-base);
     font-family: var(--font-helvetica);
   }
+
+  label {
+    font-family: var(--font-helvetica);
+  }
+
+  input,
+  textarea {
+    font-family: var(--font-helvetica);
+  }
 }

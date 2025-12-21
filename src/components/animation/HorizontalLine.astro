@@ -20,12 +20,15 @@ const { direction = "left", color = "black", width = "100px" } = Astro.props;
     background-color: var(--line-color);
   }
 
-  .from-left {
+  .from-left.animate {
     animation: slideFromLeft 1.2s ease-in-out forwards;
   }
 
   .from-right {
     margin-left: auto;
+  }
+
+  .from-right.animate {
     animation: slideFromRight 1.2s ease-in-out forwards;
   }
 
@@ -41,3 +44,21 @@ const { direction = "left", color = "black", width = "100px" } = Astro.props;
     }
   }
 </style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".horizontal-line").forEach((line) => {
+    observer.observe(line);
+  });
+</script>

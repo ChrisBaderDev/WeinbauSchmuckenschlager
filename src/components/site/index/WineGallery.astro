@@ -9,6 +9,7 @@ const wines = winesEntry?.data ?? [];
 ---
 
 <section>
+  <!-- Section Heading  -->
   <HorizontalLine direction="right" color="black" width="100%" />
   <div class="relative">
     <Image
@@ -22,19 +23,19 @@ const wines = winesEntry?.data ?? [];
       <h2 class="text-white text-4xl">Unsere Weine</h2>
     </div>
   </div>
-
+  <!-- Wine Slide Gallery -->
   <HorizontalLine direction="left" color="black" width="100%" />
-  <div class="wine-gallery-wrapper overflow-hidden">
+  <div class="wine-gallery-wrapper overflow-hidden h-[70vh] p-5">
     <div
-      class="wine-gallery flex gap-8 py-8 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth"
+      class="wine-gallery flex gap-8 py-8 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth h-full"
     >
       {
         wines.map((wine: any) => (
-          <a class="wine-card shrink-0 w-64 snap-center" href="https://www.shop-weinbau-schmuckenschlager.com/">
+          <a class="wine-card shrink-0 snap-center w-[25vw]" href="https://www.shop-weinbau-schmuckenschlager.com/">
             <Image
               src={wine.image}
               alt={wine.name}
-              class="w-full h-80 object-contain"
+              class="w-full h-8/10 object-contain"
             />
             <div class="mt-4 text-center">
               <h3 class="text-xl">{wine.name}</h3>
