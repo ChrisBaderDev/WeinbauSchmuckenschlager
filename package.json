@@ -6,11 +6,16 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "compress:jpg": "npx sharp -i \"src/**/*.jpg\" -o \"{dir}\" --format jpeg --quality 80",
+    "compress:png": "npx sharp -i \"src/**/*.png\" -o \"{dir}\" --format png --compressionLevel 9"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
     "tailwindcss": "^4.1.18"
+  },
+  "devDependencies": {
+    "sharp-cli": "^5.2.0"
   }
 }

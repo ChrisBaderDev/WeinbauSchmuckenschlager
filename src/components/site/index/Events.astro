@@ -6,20 +6,20 @@ import VerticalLine from '../../animation/VerticalLine.astro';
 const events = await getCollection('events');
 ---
 
-<section class="p-0">
+<section class="p-0 min-h-[75vh]">
     <HorizontalLine direction="left" color="black" width="100%" />
     <div class="flex justify-center items-center w-full py-10">
         <h2>Unsere Veranstaltungen</h2>
     </div>
     <HorizontalLine direction="right" color="black" width="100%" />
     
-    <div class="overflow-hidden p-0">
+    <div class="overflow-hidden p-0 h-full">
         <div class="flex overflow-x-auto snap-x snap-mandatory scroll-smooth">
 
             {events.map((event) => (
                 <a 
                     href={`/events/${event.id}`} 
-                    class="relative w-1/3 h-[50vh] snap-center overflow-hidden group"
+                    class="relative w-1/3 h-[75vh] snap-center overflow-hidden group"
                 >
                     <Image 
                         src={event.data.cover} 

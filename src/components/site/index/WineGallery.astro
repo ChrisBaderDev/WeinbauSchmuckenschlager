@@ -25,18 +25,25 @@ const wines = winesEntry?.data ?? [];
   </div>
   <!-- Wine Slide Gallery -->
   <HorizontalLine direction="left" color="black" width="100%" />
-  <div class="wine-gallery-wrapper overflow-hidden h-[70vh] p-5">
+  <div class="wine-gallery-wrapper overflow-hidden p-5">
     <div
-      class="wine-gallery flex gap-8 py-8 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth h-full"
+      class="wine-gallery flex gap-8 py-8 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth"
     >
       {
         wines.map((wine: any) => (
-          <a class="wine-card shrink-0 snap-center w-[25vw]" href="https://www.shop-weinbau-schmuckenschlager.com/">
-            <Image
-              src={wine.image}
-              alt={wine.name}
-              class="w-full h-8/10 object-contain"
-            />
+          <a
+            class="wine-card shrink-0 snap-center w-[40vw] md:w-[20vw] lg:w-[15vw] flex flex-col"
+            href="https://www.shop-weinbau-schmuckenschlager.com/"
+          >
+            <div class="aspect-[2/5] overflow-hidden">
+              <Image
+                src={wine.image}
+                alt={wine.name}
+                class="w-full h-full object-cover object-center"
+                quality={50}
+                format="png"
+              />
+            </div>
             <div class="mt-4 text-center">
               <h3 class="text-xl">{wine.name}</h3>
               <p class="text-gray-600">{wine.year}</p>

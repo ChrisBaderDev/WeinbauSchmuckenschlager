@@ -14,7 +14,7 @@ const historyItems = historyData!.data;
   </div>
   <HorizontalLine direction="right" color="black" width="100%" />
 
-  <div class="flex flex-col md:flex-row min-h-[70vh]">
+  <div class="flex flex-col md:flex-row min-h-[50vh]">
     <!-- Image Side -->
     <div class="w-full md:w-1/2 relative overflow-hidden h-[50vh] md:h-auto">
       {
@@ -39,20 +39,20 @@ const historyItems = historyData!.data;
       <div class="flex justify-end gap-4 mb-8">
         <button
           id="prev-btn"
-          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black transition-colors"
+          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black hover:cursor-pointer transition-colors"
         >
           ←
         </button>
         <button
           id="next-btn"
-          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black transition-colors"
+          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black hover:cursor-pointer transition-colors"
         >
           →
         </button>
       </div>
 
       <!-- Text Content -->
-      <div class="flex-1 flex flex-col justify-center">
+      <div class="flex-1 flex flex-col justify-center items-start h-full">
         {
           historyItems.map((item, index) => (
             <div class="history-content hidden" data-index={index}>
