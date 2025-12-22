@@ -27,7 +27,7 @@
     --text-5xl: clamp(3rem, 2rem + 4vw, 5rem);
 
     /* Sizes */
-    --header-height: clamp(100px, 10vh, 120px);
+    --header-height: clamp(150px, 10vh, 200px);
   }
   html {
     scroll-snap-type: y mandatory;

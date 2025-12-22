@@ -37,12 +37,12 @@ const FooterLinks = [
     <HorizontalLine direction="left" color="black" width="100%" />
     <div class="flex justify-start items-center p-5">
         <Image src="/logo_dark_transparent.png" alt="Logo" width={100} height={100} />
-        <h4>Weinbau Schmuckenschlager</h4>
+        <h1>Weinbau Schmuckenschlager</h1>
     </div>
     <div class="flex justify-start px-8 w-full">
         <ul class="flex flex-col gap-1 w-full">
             {FooterLinks.map((link) => (
-                <a class="hover:text-gray-500" href={link.href}><li class="w-full"></li>{link.label}</li></a>
+                <li class="w-full"><a class="block w-full hover:text-gray-500" href={link.href}>{link.label}</a></li>
                 <HorizontalLine direction="left" color="black" width="100%" />
             ))}
         </ul>
