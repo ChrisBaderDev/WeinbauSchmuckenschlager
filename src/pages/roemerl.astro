@@ -22,16 +22,18 @@ import VerticalLine from "../components/animation/VerticalLine.astro";
       />
     </div>
     <VerticalLine direction="top" color="black" />
-    <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+    <div
+      class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center"
+    >
       <h2 class="mb-6">Ausschank #imRömerl</h2>
       <p class="leading-relaxed mb-4">
         Einen herrlichen Blick auf die Stadt und das Stift, kühlen Wein 🍷 sowie
         herzhafte Schmankerln 🍖 finden Sie, wenn Sie unsere Ausschank besuchen.
       </p>
       <p class="leading-relaxed">
-        Die Ausschank findet bei der alten Weingartenhütte statt, erreichbar über das obere
-        Ende der Meynertgasse (ca. 5 min Fußweg) in Klosterneuburg. Die Wegbeschreibung
-        zum Römerl finden Sie weiter unten.
+        Die Ausschank findet bei der alten Weingartenhütte statt, erreichbar
+        über das obere Ende der Meynertgasse (ca. 5 min Fußweg) in
+        Klosterneuburg. Die Wegbeschreibung zum Römerl finden Sie weiter unten.
       </p>
     </div>
   </section>
@@ -42,10 +44,12 @@ import VerticalLine from "../components/animation/VerticalLine.astro";
   <section class="flex flex-col lg:flex-row max-w-[1600px] mx-auto">
     <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16">
       <h2 class="mb-8">Öffnungszeiten</h2>
-      
+
       <div class="mb-8">
         <h3 class="mb-4">Juli 2025</h3>
-        <p class="text-red-600 font-medium mb-2">ACHTUNG: Wegen Schlechtwetter abgesagt.</p>
+        <p class="text-red-600 font-medium mb-2">
+          ACHTUNG: Wegen Schlechtwetter abgesagt.
+        </p>
         <ul class="space-y-1 text-gray-600">
           <li>Freitag, 25.07.2025</li>
           <li>Samstag, 26.07.2025</li>
@@ -63,11 +67,13 @@ import VerticalLine from "../components/animation/VerticalLine.astro";
     </div>
 
     <div class="w-full lg:w-1/2 p-0 md:p-5 lg:p-5 flex items-center">
-      <img
-        class="w-full h-auto rounded-sm shadow-sm"
-        src="/roemerl_map.png"
-        alt="Wegbeschreibung zum Römerl"
-      />
+      <a href="https://maps.app.goo.gl/SGZerqiR5oVjqRfX9">
+        <img
+          class="w-full h-auto rounded-sm shadow-sm"
+          src="/roemerl_map.png"
+          alt="Wegbeschreibung zum Römerl"
+        />
+      </a>
     </div>
   </section>
 </BaseLayout>
