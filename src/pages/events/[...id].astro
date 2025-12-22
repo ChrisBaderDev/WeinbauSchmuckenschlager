@@ -6,7 +6,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 export async function getStaticPaths() {
   const events = await getCollection("events");
   return events.map((event) => ({
-    params: { id: event.id },  // "valedri_beats/index" works with catch-all
+    params: { id: event.id }, // "valedri_beats/index" works with catch-all
     props: { event },
   }));
 }
@@ -15,7 +15,10 @@ const { event } = Astro.props;
 const { Content } = await render(event);
 ---
 
-<BaseLayout title="Weinbau Schmuckenschlager - {event.data.title}">
+<BaseLayout
+  title="Weinbau Schmuckenschlager - {event.data.title}"
+  description="Veranstaltungen: {event.data.title} - Weinbau Schmuckenschlager - Veranstaltung in Klosterneuburg"
+>
   <article class="max-w-3xl mx-auto py-16 px-4">
     <h1 class="text-4xl mb-4">{event.data.title}</h1>
     <time class="text-gray-500"
