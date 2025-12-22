@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalLine from "../components/animation/HorizontalLine.astro";
+import VerticalLine from "../components/animation/VerticalLine.astro";
+---
+
+<BaseLayout>
+  <!-- Hero Title -->
+  <section class="py-16 md:py-24 text-center">
+    <h1>Römerl</h1>
+  </section>
+
+  <HorizontalLine direction="left" color="black" width="100%" />
+
+  <!-- About Section -->
+  <section class="flex flex-col lg:flex-row max-w-[1600px] mx-auto">
+    <div class="w-full lg:w-1/2">
+      <img
+        class="w-full h-full object-cover"
+        src="/roemerl_draussen.png"
+        alt="Ausschank im Römerl"
+      />
+    </div>
+    <VerticalLine direction="top" color="black" />
+    <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center">
+      <h2 class="mb-6">Ausschank #imRömerl</h2>
+      <p class="leading-relaxed mb-4">
+        Einen herrlichen Blick auf die Stadt und das Stift, kühlen Wein 🍷 sowie
+        herzhafte Schmankerln 🍖 finden Sie, wenn Sie unsere Ausschank besuchen.
+      </p>
+      <p class="leading-relaxed">
+        Die Ausschank findet bei der alten Weingartenhütte statt, erreichbar über das obere
+        Ende der Meynertgasse (ca. 5 min Fußweg) in Klosterneuburg. Die Wegbeschreibung
+        zum Römerl finden Sie weiter unten.
+      </p>
+    </div>
+  </section>
+
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <!-- Opening Hours & Map Section -->
+  <section class="flex flex-col lg:flex-row max-w-[1600px] mx-auto">
+    <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16">
+      <h2 class="mb-8">Öffnungszeiten</h2>
+      
+      <div class="mb-8">
+        <h3 class="mb-4">Juli 2025</h3>
+        <p class="text-red-600 font-medium mb-2">ACHTUNG: Wegen Schlechtwetter abgesagt.</p>
+        <ul class="space-y-1 text-gray-600">
+          <li>Freitag, 25.07.2025</li>
+          <li>Samstag, 26.07.2025</li>
+          <li>Sonntag, 27.07.2025</li>
+        </ul>
+      </div>
+
+      <HorizontalLine direction="left" color="black" width="50%" />
+
+      <div class="mt-8">
+        <h3 class="mb-4">Weinhügelwandertag</h3>
+        <p>5. Oktober 2025</p>
+        <p class="text-gray-600">11:00 – 18:00 Uhr</p>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-0 md:p-5 lg:p-5 flex items-center">
+      <img
+        class="w-full h-auto rounded-sm shadow-sm"
+        src="/roemerl_map.png"
+        alt="Wegbeschreibung zum Römerl"
+      />
+    </div>
+  </section>
+</BaseLayout>

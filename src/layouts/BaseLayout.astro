@@ -20,12 +20,22 @@ import Footer from "../components/structure/Footer.astro";
 </html>
 
 <script>
-  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((anchor) => {
     anchor.addEventListener("click", (e) => {
-      e.preventDefault();
       const href = anchor.getAttribute("href");
-      if (href) {
-        document.querySelector(href)?.scrollIntoView({
+      if (!href) return;
+
+      const isHomepage =
+        window.location.pathname === "/" ||
+        window.location.pathname === "/index.html";
+
+      const hash = href.includes("#") ? "#" + href.split("#")[1] : null;
+
+      if (!hash) return;
+
+      if (isHomepage) {
+        e.preventDefault();
+        document.querySelector(hash)?.scrollIntoView({
           behavior: "smooth",
         });
       }
