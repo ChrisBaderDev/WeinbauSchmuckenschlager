@@ -16,7 +16,7 @@ const historyItems = historyData!.data;
 
   <div class="flex flex-col xl:flex-row min-h-[50vh]">
     <!-- Image Side -->
-    <div class="w-full xl:w-1/2 relative overflow-hidden h-[50vh] xl:h-auto">
+    <div class="w-full xl:w-1/2 relative overflow-hidden h-[40vh] xl:h-auto">
       {
         historyItems.map((item, index) => (
           <div
@@ -26,7 +26,7 @@ const historyItems = historyData!.data;
             <Image
               src={item.image}
               alt={item.title}
-              class="w-full h-full object-cover"
+              class="w-full h-full xl:max-h-none object-cover"
             />
           </div>
         ))

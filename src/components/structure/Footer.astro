@@ -25,15 +25,15 @@ const FooterLinks = [
     },
     {
         label: "Impressum",
-        href: "#impressum"
+        href: "/impressum"
     },
     {
         label: "Datenschutz",
-        href: "#datenschutz"
+        href: "/datenschutz"
     }
 ]
 ---
-<footer class="flex flex-col h-25vh w-full">
+<footer class="flex flex-col h-25vh w-full py-10">
     <HorizontalLine direction="left" color="black" width="100%" />
     <div class="flex justify-start items-center p-5">
         <Image src="/logo_dark_transparent.png" alt="Logo" width={100} height={100} />
@@ -42,7 +42,7 @@ const FooterLinks = [
     <div class="flex justify-start px-8 w-full">
         <ul class="flex flex-col gap-1 w-full">
             {FooterLinks.map((link) => (
-                <li class="w-full"><a class="hover:text-gray-500" href={link.href}>{link.label}</a></li>
+                <a class="hover:text-gray-500" href={link.href}><li class="w-full"></li>{link.label}</li></a>
                 <HorizontalLine direction="left" color="black" width="100%" />
             ))}
         </ul>

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
 @import "tailwindcss";
 
 @layer base {
@@ -10,14 +11,14 @@
 
   :root {
     /* Font Families */
-    --font-helvetica: Helvetica, Arial, sans-serif;
-    --font-playfair: "Playfair Display", Helvetica, Arial, sans-serif;
+    --font-sans-serif: "Inter", Arial, sans-serif;
+    --font-serif: "Playfair Display", Helvetica, Arial, sans-serif;
     /* Colors */
 
     /* Fluid Font Sizes: clamp(min, preferred, max) */
     --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
     --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
-    --text-base: clamp(1rem, 0.9rem + 0.5vw, 1.25rem);
+    --text-base: clamp(1.0rem, 0.9rem + 0.5vw, 1.25rem);
     --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
     --text-xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);
     --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
@@ -26,7 +27,7 @@
     --text-5xl: clamp(3rem, 2rem + 4vw, 5rem);
 
     /* Sizes */
-    --header-height: 15vh;
+    --header-height: clamp(100px, 10vh, 120px);
   }
   html {
     scroll-snap-type: y mandatory;
@@ -34,7 +35,7 @@
   }
 
   body {
-    font-family: var(--font-playfair);
+    font-family: var(--font-serif);
     font-size: var(--text-base);
     line-height: 1.6; /* Add this for readability */
   }
@@ -59,22 +60,23 @@
   }
 
   p,
-  a {
+  a,
+  strong {
     font-size: var(--text-base);
-    font-family: var(--font-helvetica);
+    font-family: var(--font-sans-serif);
     line-height: 1.7;
   }
 
   label {
-    font-family: var(--font-helvetica);
+    font-family: var(--font-sans-serif);
   }
 
   input,
   textarea {
-    font-family: var(--font-helvetica);
+    font-family: var(--font-sans-serif);
   }
 
   button {
-    font-family: var(--font-helvetica);
+    font-family: var(--font-sans-serif);
   }
 }

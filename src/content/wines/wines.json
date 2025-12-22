@@ -1,32 +1,47 @@
 [
     {
-        "name": "Chardonnay",
+        "name": "Gemischter Satz",
         "year": 2024,
-        "image": "./images/Schmuckenschlager_Chardonnay_front.png"
-    },
-    {
-        "name": "Rose Frizzante",
-        "year": 2024,
-        "image": "./images/Schmuckenschlager_Frizzante_front.png"
+        "image": "./images/gemischter_satz.jpg"
     },
     {
         "name": "Grüner Veltliner",
-        "year": 2025,
-        "image": "./images/Schmuckenschlager_GV GBG_front.png"
+        "year": 2024,
+        "image": "./images/gemischter_satz.jpg"
     },
     {
-        "name": "Pinot Noir",
+        "name": "Rose",
         "year": 2022,
-        "image": "./images/Schmuckenschlager_Pinot Noir_front.png"
+        "image": "./images/gemischter_satz.jpg"
     },
     {
-        "name": "Riesling Goldkessel",
+        "name": "Weisser Burgunder",
+        "year": 2022,
+        "image": "./images/gemischter_satz.jpg"
+    },
+    {
+        "name": "Grauer Burgunder",
         "year": 2023,
-        "image": "./images/Schmuckenschlager_Riesling 23 Goldkessel_front.png"
+        "image": "./images/gemischter_satz.jpg"
     },
     {
-        "name": "Sekt",
+        "name": "Grauer Burgunder",
+        "year": 2017,
+        "image": "./images/gemischter_satz.jpg"
+    },
+    {
+        "name": "Grüner Veltliner Ried Göbling",
         "year": 2021,
-        "image": "./images/Schmuckenschlager_Sekt_front.png"
+        "image": "./images/gemischter_satz.jpg"
+    },
+    {
+        "name": "Riesling Ried Schreiber 2021",
+        "year": 2017,
+        "image": "./images/gemischter_satz.jpg"
+    },
+    {
+        "name": "Chardonnay 2021",
+        "year": 2021,
+        "image": "./images/gemischter_satz.jpg"
     }
 ]

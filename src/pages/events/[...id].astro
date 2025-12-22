@@ -15,7 +15,7 @@ const { event } = Astro.props;
 const { Content } = await render(event);
 ---
 
-<BaseLayout>
+<BaseLayout title="Weinbau Schmuckenschlager - {event.data.title}">
   <article class="max-w-3xl mx-auto py-16 px-4">
     <h1 class="text-4xl mb-4">{event.data.title}</h1>
     <time class="text-gray-500"
