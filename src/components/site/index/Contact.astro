@@ -17,10 +17,13 @@ import ContactForm from "./ContactForm.astro";
     <div class="w-1/2 p-5 max-xl:w-full">
       <!-- TODO: Replace with actual map link -->
       <a href="https://maps.app.goo.gl/y2sVC223ALtriPGK8">
-        <img
+        <Image
           src="/klosterneuburg_karte_hd.webp"
           class="w-full h-auto max-h-xl"
           alt="Karte Klosterneuburg"
+          width={800}
+          height={800}
+          fetchpriority="high"
         />
       </a>
     </div>

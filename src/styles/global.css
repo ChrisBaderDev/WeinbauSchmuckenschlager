@@ -15,7 +15,7 @@
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/fonts/Inter-VariableFont_opsz,wght.tff') format('woff2');
+  src: url('/fonts/Inter-VariableFont_opsz,wght.tff') format('truetype-variations');
 }
 
 @import "tailwindcss";
