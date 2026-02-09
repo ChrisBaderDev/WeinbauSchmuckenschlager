@@ -103,9 +103,9 @@ const historyItems = historyData!.data;
     const diff = touchStartX - touchEndX;
     if (Math.abs(diff) > swipeThreshold) {
       if (diff > 0) {
-        nextSlide(); // Swipe left → next
+        nextSlide(); 
       } else {
-        prevSlide(); // Swipe right → previous
+        prevSlide(); 
       }
     }
   }
