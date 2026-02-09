@@ -14,15 +14,15 @@ const events = allEvents
 <section class="p-0">
   <HorizontalLine direction="left" color="black" width="100%" />
   <div class="flex justify-center items-center w-full py-16">
-    <h2 class="fade-up">Unsere Veranstaltungen</h2>
+    <h2 class="fade-up text-center">Unsere Veranstaltungen</h2>
   </div>
   <HorizontalLine direction="right" color="black" width="100%" />
 
   <!-- Events Gallery -->
   <div class="overflow-hidden">
     <div
-      class="flex gap-4 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth
-  md:flex md:gap-0 md:px-0 md:overflow-visible"
+      class="flex px-0 overflow-x-auto snap-x snap-mandatory scroll-smooth
+  md:flex md:px-0 md:overflow-visible"
     >
       {
         events.map((event, index) => (
@@ -32,13 +32,13 @@ const events = allEvents
     relative shrink-0 w-[80%] h-[60vh] snap-start overflow-hidden group
     md:w-auto md:h-[65vh] md:snap-align-none md:flex-1
     md:border-r md:border-black md:last:border-r-0
-    transition-all duration-500 ease-in-out md:hover:flex-[2]
+    transition-all duration-500 ease-in-out md:hover:flex-2
   "
           >
             <Image
               src={event.data.cover}
               alt={event.data.title}
-              class="absolute inset-0 w-full h-full object-cover"
+              class="absolute inset-0 w-full h-full object-cover border-r-1"
             />
             <div class="absolute inset-0 bg-black/40 group-hover:bg-black/75 transition-colors" />
             <div class="relative z-10 flex flex-col justify-end h-full p-6 text-white">
