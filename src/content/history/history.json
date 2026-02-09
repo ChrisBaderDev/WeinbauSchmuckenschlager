@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Der Anfang",
+        "image": "./images/der_anfang.jpg",
+        "description": "Der heutige Weinbau und Buschenschankbetrieb Schmuckenschlager wurde ursprünglich rund um 1860 als kleine gemischte Landwirtschaft begonnen. Als einziger seiner Brüder ist Johann Hinterndorfer, nach langer und entbehrungsreicher Zeit in russischer Kriegsgefangenschaft, aus dem zweiten Weltkrieg heimgekehrt. Er begann gemeinsam mit seiner Frau Maria, den Wiederaufbau des Betriebes. Aus dem Zuerwerb durch Fuhrwerksdienste konnte er den kleinen Betrieb Stück für Stück erweitern."
+    },
+    {
+        "title": "Die Vermählung",
+        "image": "./images/die_vermaehlung.jpg",
+        "description": "Die Hochzeit der jüngeren Tochter Friederike mit Josef Schmuckenschlager war der Grundstein für eine Großfamilie. Gemeinsam konnten sie sich nicht nur über sechs Söhne freuen, sondern auch den Betrieb zu einem modernen Weinbau und Buschenschankbetrieb weiterentwickeln."
+    },
+    {
+        "title": "Die Entwicklung",
+        "image": "./images/die_entwicklung.jpg",
+        "description": "Ing. Josef Schmuckenschlager brachte in den Betrieb als Weinbautechnologe, neben seiner Lehrtätigkeit in der HBLVA Klosterneuburg, seine Kompetenz und Fachwissen ein. Im Jahr 1983 verließ die letzte Milchkuh den Stall in der Agnesstrasse und der Fokus richtet sich seither vollkommen auf den Weinbau."
+    },
+    {
+        "title": "Die Zukunft",
+        "image": "./images/die_zukunft.jpg",
+        "description": "Seit 2006 führen Andrea und Johannes Schmuckenschlager mit viel Herzblut den Familienbetrieb weiter und bewahren dabei die gelebte Tradition mit einem klaren Fokus auf höchste Qualität – im Weingarten, im Keller und beim Heurigen. Unterstützt werden sie mittlerweile von den Söhnen Paul und Klaus, beide ausgebildet im Bereich Weinbau, die ihre Expertise tatkräftig einbringen. Beim Heurigen sorgt die gemütliche Atmosphäre mit regionalen Schmankerln dafür, dass sich unsere Gäste rundum wohlfühlen."
+    }
+]

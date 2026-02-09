@@ -1,0 +1,139 @@
+---
+import "../styles/global.css";
+import Header from "../components/structure/Header.astro";
+import Footer from "../components/structure/Footer.astro";
+import CookieConsentBanner from "../components/site/CookieConsentBanner.astro";
+import SpeedInsights from "@vercel/speed-insights/astro";
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const businessSchema = {
+  "@context": "https://schema.org",
+  "@type": "Winery",
+  name: "Weinbau Schmuckenschlager",
+  legalName: "Weinbau Johannes und Andrea Schmuckenschlager",
+  url: "https://www.weinbau-schmuckenschlager.at",
+  email: "info@weinbau-schmuckenschlager.at",
+  telephone: "+43224337335",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Agnesstraße 46",
+    addressLocality: "Klosterneuburg",
+    postalCode: "3400",
+    addressCountry: "AT",
+  },
+  description: "Heurigen in Klosterneuburg - Weinbau Schmuckenschlager",
+  sameAs: ["https://www.shop-weinbau-schmuckenschlager.com/"],
+};
+---
+
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <!-- FAVICON -->
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="Weinbau Schmuckenschlager"
+    />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+
+    <link rel="canonical" href={Astro.url} />
+
+    <!-- META TAGS -->
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL("/og-image.webp", Astro.site)} />
+    <meta property="og:locale" content="de_AT" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta
+      name="twitter:image"
+      content={new URL("/og-image.webp", Astro.site)}
+    />
+
+    <!-- Struct for structured data -->
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(businessSchema)}
+    />
+    <title>{title}</title>
+  </head>
+  <body class="flex flex-col min-h-screen">
+    <Header />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <Footer />
+    <CookieConsentBanner />
+    <SpeedInsights />
+  </body>
+</html>
+
+<script>
+  document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((anchor) => {
+    anchor.addEventListener("click", (e) => {
+      const href = anchor.getAttribute("href");
+      if (!href) return;
+
+      const isHomepage =
+        window.location.pathname === "/" ||
+        window.location.pathname === "/index.html";
+
+      const hash = href.includes("#") ? "#" + href.split("#")[1] : null;
+
+      if (!hash) return;
+
+      if (isHomepage) {
+        e.preventDefault();
+        document.querySelector(hash)?.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+</script>
+
+<!-- Text animation script -->
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document.querySelectorAll(".fade-up").forEach((el) => observer.observe(el));
+  document.querySelectorAll(".tracking-reveal").forEach((el) => observer.observe(el));
+</script>

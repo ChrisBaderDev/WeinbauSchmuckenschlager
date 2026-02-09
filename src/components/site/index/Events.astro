@@ -1,0 +1,81 @@
+---
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+
+const allEvents = await getCollection("events");
+
+// Sort by date (newest first) and take last 3
+const events = allEvents
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
+  .slice(0, 3);
+---
+
+<section class="p-0">
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="flex justify-center items-center w-full py-16">
+    <h2 class="fade-up">Unsere Veranstaltungen</h2>
+  </div>
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <!-- Events Gallery -->
+  <div class="overflow-hidden">
+    <div
+      class="flex gap-4 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth
+  md:flex md:gap-0 md:px-0 md:overflow-visible"
+    >
+      {
+        events.map((event, index) => (
+          <a
+            href={`/events/${event.id.replace(/\/index\.md$/, "")}`}
+            class="
+    relative shrink-0 w-[80%] h-[60vh] snap-start overflow-hidden group
+    md:w-auto md:h-[65vh] md:snap-align-none md:flex-1
+    md:border-r md:border-black md:last:border-r-0
+    transition-all duration-500 ease-in-out md:hover:flex-[2]
+  "
+          >
+            <Image
+              src={event.data.cover}
+              alt={event.data.title}
+              class="absolute inset-0 w-full h-full object-cover"
+            />
+            <div class="absolute inset-0 bg-black/40 group-hover:bg-black/75 transition-colors" />
+            <div class="relative z-10 flex flex-col justify-end h-full p-6 text-white">
+              <h3 class="text-xl mb-2">{event.data.title}</h3>
+              <p>
+                {event.data.date.toLocaleDateString("de-AT", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+              </p>
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <!-- Show All Link -->
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div
+    class="flex justify-center py-16 transition-all duration-300 hover:py-24"
+  >
+    <a href="/events" class="text-lg hover:underline flex items-center gap-2">
+      Alle Veranstaltungen anzeigen
+      <span>→</span>
+    </a>
+  </div>
+</section>
+
+<style>
+  /* Hide scrollbar but keep functionality */
+  .overflow-x-auto {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+</style>

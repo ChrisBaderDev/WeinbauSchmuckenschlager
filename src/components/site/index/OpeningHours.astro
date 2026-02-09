@@ -1,0 +1,25 @@
+---
+import VerticalLine from '../../animation/VerticalLine.astro';
+import HorizontalLine from '../../animation/HorizontalLine.astro';
+import OpeningMonthsDisplay from './OpeningMonthsDisplay.astro';
+---
+<section>
+    <HorizontalLine direction="left" color="black" width="100%" />
+    <div class="flex flex-col w-full justify-center items-center pt-10 pb-14">
+        <h1 class="text-5xl fade-up">Ausg'steckt is'</h1>
+    </div>
+    <HorizontalLine direction="left" color="black" width="100%" />
+    <div class="flex flex-col md:flex-row items-center">
+        <div class="flex flex-col items-center w-full md:w-1/2 py-10 gap-4">
+            <h3>Öffnungszeiten</h3>
+            <p><strong>Montag - Samstag:</strong> ab. 15:00</p>
+            <p><strong>Sonntag und Feiertag:</strong> ab. 10:00</p>
+            <a class="underline" href="/roemerl">Römerl Öffnungzeiten »</a>
+        </div>
+        <VerticalLine direction="top" color="black"/>
+        <div class="w-full md:w-1/2">
+            <OpeningMonthsDisplay />
+        </div>
+    </div>
+    <HorizontalLine direction="right" color="black" width="100%" />
+</section>

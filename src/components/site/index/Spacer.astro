@@ -1,0 +1,13 @@
+---
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+interface Props {
+  height?: string;
+}
+const { height = "8rem" } = Astro.props;
+---
+
+<HorizontalLine direction="left" color="black" width="100%" />
+<div class="flex items-center justify-center py-16">
+  <div class="flex items-center gap-6 text-gray-400">
+  </div>
+</div>

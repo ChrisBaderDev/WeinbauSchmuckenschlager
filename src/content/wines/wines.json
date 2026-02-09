@@ -1,0 +1,57 @@
+[
+    {
+        "name": "Gemischter Satz",
+        "year": 2024,
+        "image": "./images/gemischter_satz_2024.webp"
+    },
+    {
+        "name": "Grüner Veltliner",
+        "year": 2024,
+        "image": "./images/grüner_veltliner_2024.webp"
+    },
+    {
+        "name": "Riesling 2024 CHINA-Edition",
+        "year": 2024,
+        "image": "./images/riesling_2024_china_edition.webp"
+    },
+    {
+        "name": "Riesling Sekt brut",
+        "year": 2024,
+        "image": "./images/riesling_sekt_brut.webp"
+    },
+    {
+        "name": "Rose",
+        "year": 2022,
+        "image": "./images/rose_2022.webp"
+    },
+    {
+        "name": "Weisser Burgunder",
+        "year": 2022,
+        "image": "./images/weisser_burgunder_2022.webp"
+    },
+    {
+        "name": "Grauer Burgunder",
+        "year": 2023,
+        "image": "./images/grauer_burgunder_2023.webp"
+    },
+    {
+        "name": "Grauer Burgunder",
+        "year": 2017,
+        "image": "./images/grauer_burgunder_2017.webp"
+    },
+    {
+        "name": "Grüner Veltliner Ried Göbling",
+        "year": 2021,
+        "image": "./images/grüner_veltliner_ried_göbling.webp"
+    },
+    {
+        "name": "Riesling Ried Schreiber 2021",
+        "year": 2017,
+        "image": "./images/riesling_ried_schreiber_2021.webp"
+    },
+    {
+        "name": "Chardonnay 2021",
+        "year": 2021,
+        "image": "./images/chardonnay_2024.webp"
+    }
+]

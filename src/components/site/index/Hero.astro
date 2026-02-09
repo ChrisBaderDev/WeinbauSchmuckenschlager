@@ -1,0 +1,33 @@
+---
+import videoPoster from "../../../assets/images/video_poster.webp";
+---
+
+<section
+  class="relative w-full h-[calc(100vh-var(--header-height))] h-[calc(100dvh-var(--header-height))]"
+>
+  <video
+    class="absolute inset-0 w-full h-full object-cover"
+    src="/vineyard_medium_quality_720p.mp4"
+    poster={videoPoster.src}
+    autoplay
+    loop
+    muted
+    playsinline></video>
+
+  <div
+    class="relative z-10 flex flex-col items-center justify-center h-full gap-8"
+  >
+    <img
+      src="/logo.png"
+      alt="Weinbau Schmuckenschlager"
+      class="w-35"
+      fetchpriority="high"
+    />
+    <a
+      href="https://shop-weinbau-schmuckenschlager.com"
+      class="px-8 py-3 text-white border-2 border-white bg-transparent hover:bg-white/20 transition-colors"
+    >
+      Zum Shop
+    </a>
+  </div>
+</section>

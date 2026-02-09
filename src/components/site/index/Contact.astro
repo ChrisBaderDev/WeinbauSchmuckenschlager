@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+import ContactForm from "./ContactForm.astro";
+---
+
+<section id="kontakt">
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="flex flex-col w-full justify-center items-center py-20">
+    <h2 class="fade-up">Können wir helfen?</h2>
+  </div>
+  <HorizontalLine direction="right" color="black" width="100%" />
+  <div class="flex flex-row items-center justify-between max-xl:flex-col gap-5">
+    <div class="w-1/2 max-xl:w-full">
+      <ContactForm />
+    </div>
+    <div class="flex flex-col max-w-3xl justify-center w-full h-full px-6 py-12 text-center">
+      <a href="https://maps.app.goo.gl/y2sVC223ALtriPGK8">
+        <Image
+          src="/klosterneuburg_karte_hd.webp"
+          class="w-full h-auto max-h-xl"
+          alt="Karte Klosterneuburg"
+          width={800}
+          height={800}
+          loading="lazy"
+        />
+      </a>
+    </div>
+  </div>
+</section>

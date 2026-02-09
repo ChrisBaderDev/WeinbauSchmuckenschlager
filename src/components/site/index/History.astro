@@ -1,0 +1,150 @@
+---
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+
+const historyData = await getEntry("history", "history");
+const historyItems = historyData!.data;
+---
+
+<section id="geschichte">
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="flex flex-col w-full justify-center items-center py-20">
+    <h2 class="fade-up">Unsere Geschichte</h2>
+  </div>
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <div class="flex flex-col xl:flex-row min-h-[50vh]">
+    <!-- Image Side -->
+    <div class="w-full xl:w-1/2 relative overflow-hidden h-[40vh] xl:h-auto">
+      {
+        historyItems.map((item, index) => (
+          <div
+            class="history-slide absolute inset-0 opacity-0 transition-opacity duration-500"
+            data-index={index}
+          >
+            <Image
+              src={item.image}
+              alt={item.title}
+              class="w-full h-full xl:max-h-none object-cover"
+              loading="lazy"
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Content Side -->
+    <div class="w-full xl:w-1/2 p-8 xl:p-16 flex flex-col">
+      <!-- Navigation -->
+      <div class="flex justify-end gap-4 mb-8">
+        <button
+          id="prev-btn"
+          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black hover:cursor-pointer transition-colors"
+        >
+          ←
+        </button>
+        <button
+          id="next-btn"
+          class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center hover:border-black hover:cursor-pointer transition-colors"
+        >
+          →
+        </button>
+      </div>
+
+      <!-- Text Content - Fixed height container -->
+      <div class="relative min-h-[400px] xl:min-h-[500px]">
+        {
+          historyItems.map((item, index) => (
+            <div
+              class="history-content absolute inset-0 opacity-0 transition-opacity duration-500"
+              data-index={index}
+            >
+              <h3 class="text-3xl mb-6">{item.title}</h3>
+              <p class="text-gray-700 leading-relaxed">{item.description}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  let currentIndex = 0;
+  const slides = document.querySelectorAll(".history-slide");
+  const contents = document.querySelectorAll(".history-content");
+  const total = slides.length;
+  const section = document.getElementById("geschichte");
+
+  // Touch swipe variables
+  let touchStartX = 0;
+  let touchEndX = 0;
+  const swipeThreshold = 50;
+
+  function showSlide(index: number) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("opacity-0", i !== index);
+      slide.classList.toggle("opacity-100", i === index);
+    });
+    contents.forEach((content, i) => {
+      content.classList.toggle("opacity-0", i !== index);
+      content.classList.toggle("opacity-100", i === index);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % total;
+    showSlide(currentIndex);
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + total) % total;
+    showSlide(currentIndex);
+  }
+
+  function handleSwipe() {
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > swipeThreshold) {
+      if (diff > 0) {
+        nextSlide(); // Swipe left → next
+      } else {
+        prevSlide(); // Swipe right → previous
+      }
+    }
+  }
+
+  // Initialize first slide
+  showSlide(0);
+
+  // Button listeners
+  document.getElementById("prev-btn")?.addEventListener("click", prevSlide);
+  document.getElementById("next-btn")?.addEventListener("click", nextSlide);
+
+  // Touch listeners
+  section?.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+    },
+    { passive: true }
+  );
+
+  section?.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    },
+    { passive: true }
+  );
+</script>
+
+<style>
+  .history-slide {
+    z-index: 0;
+  }
+  .history-slide.opacity-100 {
+    z-index: 1;
+  }
+</style>

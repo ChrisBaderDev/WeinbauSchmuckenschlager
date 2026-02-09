@@ -1,0 +1,64 @@
+---
+interface Props {
+  direction?: "left" | "right";
+  color?: string;
+  width?: string;
+}
+
+const { direction = "left", color = "black", width = "100px" } = Astro.props;
+---
+
+<div
+  class:list={["horizontal-line", direction === "left" ? "from-left" : "from-right"]}
+  style={`--line-color: ${color}; --line-width: ${width};`}
+></div>
+
+<style is:global>
+  .horizontal-line {
+    height: 1px;
+    width: 0;
+    background-color: var(--line-color);
+  }
+
+  .from-left.animate {
+    animation: slideFromLeft 1.2s ease-in-out forwards;
+  }
+
+  .from-right {
+    margin-left: auto;
+  }
+
+  .from-right.animate {
+    animation: slideFromRight 1.2s ease-in-out forwards;
+  }
+
+  @keyframes slideFromLeft {
+    to {
+      width: var(--line-width);
+    }
+  }
+
+  @keyframes slideFromRight {
+    to {
+      width: var(--line-width);
+    }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".horizontal-line").forEach((line) => {
+    observer.observe(line);
+  });
+</script>

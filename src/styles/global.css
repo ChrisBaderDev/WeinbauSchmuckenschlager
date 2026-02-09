@@ -1,0 +1,106 @@
+@import "@fontsource-variable/playfair-display";
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+
+
+
+@layer base {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    /* Font Families */
+    --font-sans-serif: "Inter Variable", Arial, sans-serif;
+    --font-serif: "Playfair Display Variable", Helvetica, Arial, sans-serif;
+    /* Colors */
+
+    /* Fluid Font Sizes: clamp(min, preferred, max) */
+    --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+    --text-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+    --text-base: clamp(1.0rem, 0.9rem + 0.5vw, 1.25rem);
+    --text-lg: clamp(1.125rem, 1rem + 0.6vw, 1.5rem);
+    --text-xl: clamp(1.25rem, 1rem + 1vw, 1.75rem);
+    --text-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2.25rem);
+    --text-3xl: clamp(1.875rem, 1.4rem + 2vw, 3rem);
+    --text-4xl: clamp(2.25rem, 1.5rem + 3vw, 4rem);
+    --text-5xl: clamp(3rem, 2rem + 4vw, 5rem);
+
+    /* Sizes */
+    --header-height: clamp(150px, 10vh, 200px);
+  }
+
+  body {
+    font-family: var(--font-serif);
+    font-size: var(--text-base);
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+  }
+  h2 {
+    font-size: var(--text-3xl);
+  }
+  h3 {
+    font-size: var(--text-2xl);
+  }
+  h4 {
+    font-size: var(--text-xl);
+  }
+  h5 {
+    font-size: var(--text-base);
+  }
+  h6 {
+    font-size: var(--text-sm);
+  }
+
+  p,
+  a,
+  strong {
+    font-size: var(--text-base);
+    font-family: var(--font-sans-serif);
+    line-height: 1.7;
+  }
+
+  label {
+    font-family: var(--font-sans-serif);
+  }
+
+  input,
+  textarea {
+    font-family: var(--font-sans-serif);
+  }
+
+  button {
+    font-family: var(--font-sans-serif);
+  }
+
+  time {
+    font-family: var(--font-sans-serif);
+  }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .tracking-reveal {
+    letter-spacing: 0.3em;
+    opacity: 0;
+    transition: letter-spacing 0.8s ease-out, opacity 0.6s ease-out;
+  }
+  
+  .tracking-reveal.visible {
+    letter-spacing: normal;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,69 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const allEvents = await getCollection('events');
+
+// Sort by date (newest first)
+const events = allEvents.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+// Get brief descriptions (first 150 chars of content)
+const eventsWithExcerpt = await Promise.all(
+  events.map(async (event) => {
+    const { Content, remarkPluginFrontmatter } = await render(event);
+    // Get raw body text and truncate
+    const excerpt = event.body?.slice(0, 150).trim() + '...' || '';
+    return { ...event, excerpt };
+  })
+);
+---
+
+<BaseLayout title="Weinbau Schmuckenschlager - Alle Veranstaltungen" description="Alle Veranstaltungen von Weinbau Schmuckenschlager - Veranstaltungen und Events in Klosterneuburg">
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl mb-4">Alle Veranstaltungen</h1>
+      <p class="text-gray-600">Unsere vergangenen und kommenden Events</p>
+    </div>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
+      {eventsWithExcerpt.map((event) => (
+        <a 
+          href={`/events/${event.id.replace(/\/index\.md$/, "")}`}
+          class="group block bg-white overflow-hidden hover:shadow-lg transition-shadow"
+        >
+          <div class="aspect-4/3 overflow-hidden">
+            <Image 
+              src={event.data.cover} 
+              alt={event.data.title}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <div class="p-6">
+            <time class="text-sm text-gray-500">
+              {event.data.date.toLocaleDateString('de-AT', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric' 
+              })}
+            </time>
+            <h2 class="text-xl mt-2 mb-3 group-hover:underline">{event.data.title}</h2>
+            <p class="text-gray-600 text-sm line-clamp-3">{event.excerpt}</p>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    {events.length === 0 && (
+      <p class="text-center text-gray-500 py-12">Keine Veranstaltungen gefunden.</p>
+    )}
+  </section>
+</BaseLayout>
+
+<style>
+  .line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+</style>

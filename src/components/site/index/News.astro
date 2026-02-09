@@ -1,0 +1,20 @@
+---
+import HorizontalLine from '../../animation/HorizontalLine.astro';
+import VerticalLine from '../../animation/VerticalLine.astro';
+---
+<section id="news">
+    <div class="flex flex-col w-full justify-center items-center py-10">
+        <h2>Bevorstehendes</h2>
+    </div>
+    <HorizontalLine direction="left" color="black" width="100%" />
+    <div class="flex flex-row max-md:flex-col max-md:items-center text-center py-10">
+        <div class="flex flex-col items-center w-1/2 py-10 gap-4">
+            <h3>Valedri Beats</h3>
+            <p>25. Oktober ab 22 Uhr in der Agnesstraße 46</p>
+        </div>
+        <div class="flex flex-col items-center w-1/2 py-10 gap-4">
+            <h3>Weinhügelwandertag</h3>
+            <p>5. Oktober von 11-18 Uhr am Buchberg</p>
+        </div>
+    </div>
+</section>

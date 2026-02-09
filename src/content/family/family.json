@@ -1,0 +1,38 @@
+[
+    {
+        "name": "Johannes Schmuckenschlager",
+        "role": "Weinhauer",
+        "image": "./images/johannes_schmuckenschlager.jpg",
+        "description": "Neben seinen vielen Aufgaben in öffentlichen Funktionen ist Johannes zeitlich naturgemäß sehr eingeschränkt. In der verbleibenden Zeit bringt er sich gerne bei diversen betrieblichen Aufgaben ein. Er ist in der Schank beim Heurigen ebenso anzutreffen wie bei diversen Pflegearbeiten im Weingarten. Weiters bringt er seine Erfahrung auch im gesamten Qualitätsmanagement des Betriebes ein."
+    },
+    {
+        "name": "Andrea Schmuckenschlager",
+        "role": "Heurigenwirtin",
+        "image": "./images/andrea_schmuckenschlager.jpg",
+        "description": "Andrea ist seit 2022 Weinbau-Meister und führt den Heurigen mit klarer Linie und viel Einsatz. Neben der Organisation des laufenden Betriebs ist sie auch regelmäßig im Weingarten im Einsatz und verbindet praktisches Know-how mit einem starken Bezug zum Familienbetrieb."
+    },
+    {
+        "name": "Josef Schmuckenschlager",
+        "role": "Weinhauer",
+        "image": "./images/josef_schmuckenschlager.jpg",
+        "description": "Als Weinbaufachmann obliegt ihm die Kontrolle und Pflege der Weingärten. Einer seiner Lieblingsplätze ist die Werkstatt, wo er sich liebevoll um Reparatur und Schweißarbeiten an diversen Maschinen und Geräten annimmt."
+    },
+    {
+        "name": "Friederike  Schmuckenschlager",
+        "role": "Heurigenwirtin",
+        "image": "./images/friederike_schmuckenschlager.jpg",
+        "description": "Sie ist nicht nur als liebevolle Oma von 16 Enkerln stets um deren Wohl bemüht, sondern widmet sich auch sehr der Betreuung unserer Gäste beim Heurigen. Ob in der Küche oder im Buffet ist sie stets mit helfender Hand zur Stelle."
+    },
+    {
+        "name": "Paul Schmuckenschlager",
+        "role": "Marketing & Sales",
+        "image": "./images/paul_schmuckenschlager.jpg",
+        "description": "Zwischen Marketing, Sales und dem Organisieren von Events, wie der Ausschank im Römerl und Valedri-Beats bringt Paul frischen Wind in den Betrieb. Wenn er nicht gerade in Krems International Wine Business studiert, trifft man ihn meist im Heurigen an der Schank oder online auf unseren Social-Media-Kanälen."
+    },
+    {
+        "name": "Klaus Schmuckenschlager",
+        "role": "Kellermeister",
+        "image": "./images/klaus_schmuckenschlager.jpg",
+        "description": "Als Absolvent der HBLA für Wein- und Obstbau Klosterneuburg verfügt er über fundiertes Fachwissen, das er gezielt in den Betrieb einbringt. Durch zahlreiche Praktika im Ausland hat er zudem wertvolle Erfahrungen im Keller gesammelt – eine Handschrift, die sich eindrucksvoll in der Qualität unserer Weine widerspiegelt."
+    }
+]

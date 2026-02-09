@@ -1,0 +1,148 @@
+---
+const MenuLinks = [
+  { label: "Home", href: "/" },
+  { label: "News", href: "/#news" },
+  { label: "Shop", href: "https://www.shop-weinbau-schmuckenschlager.com/" },
+  { label: "Familie", href: "/#familie" },
+  { label: "Kontakt", href: "/#kontakt" },
+  { label: "Römerl", href: "/roemerl" },
+];
+---
+
+<header
+  class="sticky top-0 z-50 flex flex-row items-center justify-between bg-black h-(--header-height)"
+>
+  <div class="flex items-center h-full p-5">
+    <a href="/">
+      <img
+        class="w-20 max-md:w-15 mx-3"
+        src="/logo.png"
+        alt="Logo vom Weinbau Schmuckenschlager"
+        fetchpriority="high"
+      />
+    </a>
+    <p
+      class="text-white mx-5 text-xl md:text-2xl max-w-[150px] md:max-w-none leading-tight font-serif"
+    >
+      Weinbau Schmuckenschlager
+    </p>
+  </div>
+
+  <!-- Desktop Menu -->
+  <menu class="hidden xl:flex items-center h-full p-10">
+    <ul class="flex flex-row gap-6">
+      {
+        MenuLinks.map((link) => (
+          <li>
+            <a
+              class="text-white hover:text-gray-500 font-serif"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </menu>
+
+  <!-- Mobile Burger Button -->
+  <button
+    id="menu-toggle"
+    class="xl:hidden p-5 text-white"
+    aria-label="Open menu"
+  >
+    <!-- Replace with your SVG -->
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"></path>
+    </svg>
+  </button>
+</header>
+
+<!-- Mobile Slide-in Menu -->
+<div id="mobile-menu" class="fixed inset-0 z-50 pointer-events-none">
+  <!-- Backdrop -->
+  <div
+    id="menu-backdrop"
+    class="absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-300"
+  >
+  </div>
+
+  <!-- Panel -->
+  <nav
+    id="menu-panel"
+    class="absolute top-0 right-0 h-full w-72 bg-black translate-x-full transition-transform duration-300 ease-out"
+  >
+    <button
+      id="menu-close"
+      class="absolute top-6 right-6 text-white hover:cursor-pointer"
+      aria-label="Close menu"
+    >
+      <svg
+        class="w-8 h-8"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <ul class="flex flex-col gap-6 pt-20 px-8">
+      {
+        MenuLinks.map((link) => (
+          <li>
+            <a
+              class="mobile-link text-white text-xl hover:text-gray-400 font-serif"
+              href={link.href}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
+
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const menuClose = document.getElementById("menu-close");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const backdrop = document.getElementById("menu-backdrop");
+  const panel = document.getElementById("menu-panel");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+
+  function openMenu() {
+    mobileMenu?.classList.remove("pointer-events-none");
+    backdrop?.classList.add("opacity-100");
+    panel?.classList.remove("translate-x-full");
+  }
+
+  function closeMenu() {
+    backdrop?.classList.remove("opacity-100");
+    panel?.classList.add("translate-x-full");
+    setTimeout(() => {
+      mobileMenu?.classList.add("pointer-events-none");
+    }, 300);
+  }
+
+  menuToggle?.addEventListener("click", openMenu);
+  menuClose?.addEventListener("click", closeMenu);
+  backdrop?.addEventListener("click", closeMenu);
+  mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
+</script>
+
+<style>
+  a {
+    font-size: var(--text-xl);
+  }
+</style>

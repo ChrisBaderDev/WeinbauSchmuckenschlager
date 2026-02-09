@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalLine from "../components/animation/HorizontalLine.astro";
+import VerticalLine from "../components/animation/VerticalLine.astro";
+import RoemerlMap from "../assets/images/roemerl_map_light.png";
+import AusschankImRoemerl from "../assets/images/roemerl_draussen.webp";
+import { Image } from "astro:assets";
+---
+
+<BaseLayout
+  title="Römerl von Weinbau Schmuckenschlager"
+  description="Römerl am Weinberg von Weinbau Schmuckenschlager - Öffnungszeiten und Karte"
+>
+  <!-- Hero Title -->
+  <section class="py-16 md:py-24 text-center">
+    <h1>Römerl</h1>
+  </section>
+
+  <HorizontalLine direction="left" color="black" width="100%" />
+
+  <!-- About Section -->
+  <section class="flex flex-col lg:flex-row mx-auto">
+    <div class="w-full lg:w-1/2">
+      <Image
+        class="w-full h-full object-cover"
+        src={AusschankImRoemerl}
+        alt={"Draußen beim Roemerl"}
+        width={2000}
+      />
+    </div>
+    <VerticalLine direction="top" color="black" />
+    <div
+      class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center"
+    >
+      <h2 class="mb-6">Ausschank #imRömerl</h2>
+      <p class="leading-relaxed mb-4">
+        Einen herrlichen Blick auf die Stadt und das Stift, kühlen Wein 🍷 sowie
+        herzhafte Schmankerln 🍖 finden Sie, wenn Sie unsere Ausschank besuchen.
+      </p>
+      <p class="leading-relaxed">
+        Die Ausschank findet bei der alten Weingartenhütte statt, erreichbar
+        über das obere Ende der Meynertgasse (ca. 5 min Fußweg) in
+        Klosterneuburg. Die Wegbeschreibung zum Römerl finden Sie weiter unten.
+      </p>
+    </div>
+  </section>
+
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <!-- Opening Hours & Map Section -->
+  <section class="flex flex-col lg:flex-row  mx-auto">
+    <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16">
+      <h2 class="mb-8">Öffnungszeiten</h2>
+      <HorizontalLine direction="left" color="black" width="50%" />
+      <div class="my-8">
+        <h3 class="mb-3">2026</h3>
+        <p>
+          Die Öffnungszeiten für die Saison 2026 werden noch bekannt gegeben.
+        </p>
+      </div>
+    </div>
+
+    <div class="w-full lg:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col items-start justify-start">
+      <h2 class="mb-5">Addresse vom Römerl</h2>
+      <a class="underline mb-10" href="https://maps.app.goo.gl/SGZerqiR5oVjqRfX9">Meynertgasse, 3400 Klosterneuburg</a>
+      <a href="https://maps.app.goo.gl/SGZerqiR5oVjqRfX9">
+        <Image
+          
+          src={RoemerlMap}
+          width={800}
+          alt={"Karte für den Weg zum Roemerl"}
+        />
+      </a>
+    </div>
+  </section>
+</BaseLayout>

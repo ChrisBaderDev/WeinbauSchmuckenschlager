@@ -1,0 +1,65 @@
+---
+import HorizontalLine from "../../animation/HorizontalLine.astro";
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+
+const familyCollection = await getCollection("family");
+const familyMembers = familyCollection[0].data;
+---
+
+<section id="familie" class="flex flex-col justify-center items-center">
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="relative w-full">
+    <img class="w-full object-cover h-120" src="/vineyard.webp" alt="Lese" />
+    <div class="absolute inset-0 flex items-center justify-center bg-black/40">
+      <h2 class="text-white text-4xl fade-up">Die Familie</h2>
+    </div>
+  </div>
+  <HorizontalLine direction="right" color="black" width="100%" />
+
+  <!-- Family Members -->
+  <div class="w-full overflow-hidden py-20">
+    <div
+      class="flex overflow-x-auto snap-x snap-mandatory gap-10 p-10
+    md:grid md:grid-cols-2 lg:grid-cols-3 md:overflow-visible max-w-[1920px] mx-auto"
+    >
+      {
+        familyMembers.map((member) => (
+          <article
+            class="
+        shrink-0 w-[80vw] snap-center
+        md:w-auto md:snap-align-none
+        bg-white
+      "
+          >
+            <div class="aspect-square overflow-hidden">
+              <Image
+                src={member.image}
+                alt={member.name}
+                class="w-full h-full object-cover pb-5"
+                loading="lazy"
+                width={800}
+                height={800}
+              />
+            </div>
+            <div class="py-4">
+              <h3 class="font-thin fade-up">{member.name}</h3>
+              <p class="text-sm text-gray-500 mb-2 fade-up">{member.role}</p>
+              <p class="fade-up">{member.description}</p>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .overflow-x-auto {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .overflow-x-auto::-webkit-scrollbar {
+    display: none;
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+interface Props {
+  direction?: "top" | "bottom";
+  color?: string;
+}
+
+const { direction = "top", color = "black" } = Astro.props;
+---
+
+<div
+  class:list={["vertical-line", direction === "top" ? "from-top" : "from-bottom"]}
+  style={`--line-color: ${color};`}
+></div>
+
+<style is:global>
+  .vertical-line {
+    width: 1px;
+    align-self: stretch;
+    background: linear-gradient(to bottom, var(--line-color), var(--line-color));
+    background-size: 100% 0%;
+    background-repeat: no-repeat;
+    background-position: top;
+  }
+
+  .from-top {
+    background-position: top;
+  }
+
+  .from-top.animate {
+    animation: revealFromTop 0.8s ease-in-out forwards;
+  }
+
+  .from-bottom {
+    background-position: bottom;
+  }
+
+  .from-bottom.animate {
+    animation: revealFromBottom 0.8s ease-in-out forwards;
+  }
+
+  @keyframes revealFromTop {
+    to { background-size: 100% 100%; }
+  }
+
+  @keyframes revealFromBottom {
+    to { background-size: 100% 100%; }
+  }
+</style>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("animate");
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
+
+  document.querySelectorAll(".vertical-line").forEach((line) => {
+    observer.observe(line);
+  });
+</script>
