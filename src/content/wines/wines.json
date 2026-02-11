@@ -5,14 +5,14 @@
         "image": "./images/gemischter_satz_2024.webp"
     },
     {
-        "name": "Grüner Veltliner",
-        "year": 2024,
-        "image": "./images/grüner_veltliner_2024.webp"
-    },
-    {
         "name": "Riesling 2024 CHINA-Edition",
         "year": 2024,
         "image": "./images/riesling_2024_china_edition.webp"
+    },
+    {
+        "name": "Grüner Veltliner",
+        "year": 2024,
+        "image": "./images/grüner_veltliner_2024.webp"
     },
     {
         "name": "Riesling Sekt brut",
