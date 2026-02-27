@@ -38,10 +38,10 @@ const wines = winesEntry?.data ?? [];
       {
         wines.map((wine: any) => (
           <a
-            class="wine-card shrink-0 snap-start flex flex-col w-[calc((100%-1rem)/2)] md:w-[calc((100%-2rem)/3)] lg:w-[calc((100%-4rem)/5)]"
+            class="wine-card shrink-0 snap-start flex flex-col w-[calc((100%-1rem)/2)] sm:w-[calc((100%-2rem)/4)] lg:w-[calc((100%-4rem)/5)] xl:w-[calc((100%-4rem)/6)] 2xl:w-[calc((100%-4rem)/7)]"
             href="https://www.shop-weinbau-schmuckenschlager.com/"
           >
-            <div class="h-64 md:h-72 lg:h-120 overflow-hidden">
+            <div class="aspect-3/4 overflow-hidden">
               <Image
                 src={wine.image}
                 alt={wine.name}
