@@ -37,7 +37,7 @@ const familyMembers = familyCollection[0].data;
         bg-white
       "
           >
-            <div class=" overflow-hidden mb-5">
+            <div class="mb-5">
               <Image
                 src={member.image}
                 alt={member.name}
@@ -46,8 +46,8 @@ const familyMembers = familyCollection[0].data;
                 width={800}
                 height={800}
               />
-              <h3 class="font-thin fade-up">{member.name}</h3>
-              <p class="text-sm text-gray-500 fade-up">{member.role}</p>
+              <h3 class="font-thin fade-up mb-2">{member.name}</h3>
+              <p class="text-sm text-neutral-500 fade-up">{member.role}</p>
             </div>
             <div class="">
               <p class="fade-up">{member.description}</p>
