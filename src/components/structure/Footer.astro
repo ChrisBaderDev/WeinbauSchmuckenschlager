@@ -1,50 +1,64 @@
 ---
-import HorizontalLine from '../animation/HorizontalLine.astro';
-import { Image } from 'astro:assets';
+import HorizontalLine from "../animation/HorizontalLine.astro";
+import { Image } from "astro:assets";
 
 const FooterLinks = [
-    {
-        label: "Home",
-        href: "/"
-    },
-    {
-        label: "News",
-        href: "/#news"
-    },
-    {
-        label: "Shop",
-        href: "https://www.shop-weinbau-schmuckenschlager.com/"
-    },
-    {
-        label: "Familie",
-        href: "/#familie"
-    },
-    {
-        label: "Kontakt",
-        href: "/#kontakt"
-    },
-    {
-        label: "Impressum",
-        href: "/impressum"
-    },
-    {
-        label: "Datenschutz",
-        href: "/datenschutz"
-    }
-]
+  {
+    label: "Home",
+    href: "/",
+  },
+  {
+    label: "News",
+    href: "/#news",
+  },
+  {
+    label: "Shop",
+    href: "https://www.shop-weinbau-schmuckenschlager.com/",
+  },
+  {
+    label: "Familie",
+    href: "/#familie",
+  },
+  {
+    label: "Kontakt",
+    href: "/#kontakt",
+  },
+  {
+    label: "Impressum",
+    href: "/impressum",
+  },
+  {
+    label: "Datenschutz",
+    href: "/datenschutz",
+  },
+];
 ---
+
 <footer class="flex flex-col h-25vh w-full py-10">
-    <HorizontalLine direction="left" color="black" width="100%" />
-    <div class="flex justify-start items-center p-5">
-        <Image class="w-[75px] md:w-[100px]" src="/logo_dark_transparent.png" alt="Logo des Weinbaus Schmuckenschlager" width={100} height={100} loading="lazy" />
-        <h4 class="ml-2">Weinbau <br> Schmuckenschlager</h4>
-    </div>
-    <div class="flex justify-start px-8 w-full">
-        <ul class="flex flex-col gap-1 w-full">
-            {FooterLinks.map((link) => (
-                <li class="w-full"><a class="block w-full hover:text-gray-500" href={link.href}>{link.label}</a></li>
-                <HorizontalLine direction="left" color="black" width="100%" />
-            ))}
-        </ul>
-    </div>
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <div class="flex justify-start items-center p-5">
+    <Image
+      class="w-[75px] md:w-[100px]"
+      src="/logo_dark_transparent.png"
+      alt="Logo des Weinbaus Schmuckenschlager"
+      width={100}
+      height={100}
+      loading="lazy"
+    />
+    <p class="ml-2 font-serif text-xl">Weinbau <br /> Schmuckenschlager</p>
+  </div>
+  <div class="flex justify-start px-8 w-full">
+    <ul class="flex flex-col gap-1 w-full">
+      {
+        FooterLinks.map((link) => (
+          <li class="w-full">
+            <a class="block w-full hover:text-gray-500" href={link.href}>
+              {link.label}
+            </a>
+            <HorizontalLine direction="left" color="black" width="100%" />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </footer>
