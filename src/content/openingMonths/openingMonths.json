@@ -36,8 +36,14 @@
       "year": 2026
     },
     {
-      "month": "November/Dezember",
+      "month": "November",
       "startDate": "27. Nov.",
+      "endDate": "30. Nov.",
+      "year": 2026
+    },
+    {
+      "month": "Dezember",
+      "startDate": "01. Dez.",
       "endDate": "07. Dez.",
       "year": 2026
     }

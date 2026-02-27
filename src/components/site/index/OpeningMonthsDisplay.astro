@@ -24,7 +24,9 @@ const sorted = [...allMonths].sort((a, b) => {
 // Find upcoming months (including current if it exists)
 const upcoming = sorted.filter(m => {
   const mIndex = monthMap[m.month];
-  return m.year > currentYear || (m.year === currentYear && mIndex >= currentMonth);
+  const endDay = parseInt(m.endDate);
+  const endDate = new Date(m.year, mIndex, endDay);
+  return endDate >= now;
 });
 
 // If we have 3+ upcoming, use those. Otherwise, take last 3 from sorted list.
