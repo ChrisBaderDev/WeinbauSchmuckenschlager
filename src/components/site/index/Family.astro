@@ -10,7 +10,13 @@ const familyMembers = familyCollection[0].data;
 <section id="familie" class="flex flex-col justify-center items-center">
   <HorizontalLine direction="left" color="black" width="100%" />
   <div class="relative w-full">
-    <Image class="w-full object-cover h-120" width={1500} height={1000} src="/vineyard.webp" alt="Lese" />
+    <Image
+      class="w-full object-cover h-48 md:h-64 xl:h-96"
+      width={1500}
+      height={1000}
+      src="/vineyard.webp"
+      alt="Lese"
+    />
     <div class="absolute inset-0 flex items-center justify-center bg-black/40">
       <h2 class="text-white text-4xl fade-up">Die Familie</h2>
     </div>
@@ -32,19 +38,19 @@ const familyMembers = familyCollection[0].data;
         bg-white
       "
           >
-            <div class="aspect-square overflow-hidden">
+            <div class=" overflow-hidden mb-5">
               <Image
                 src={member.image}
                 alt={member.name}
-                class="w-full h-full object-cover pb-5"
+                class="w-full h-full object-cover mb-5 aspect-square"
                 loading="lazy"
                 width={800}
                 height={800}
               />
-            </div>
-            <div class="py-4">
               <h3 class="font-thin fade-up">{member.name}</h3>
-              <p class="text-sm text-gray-500 mb-2 fade-up">{member.role}</p>
+              <p class="text-sm text-gray-500 fade-up">{member.role}</p>
+            </div>
+            <div class="">
               <p class="fade-up">{member.description}</p>
             </div>
           </article>
