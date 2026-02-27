@@ -23,30 +23,28 @@ const wines = winesEntry?.data ?? [];
   </div>
   <!-- Wine Slide Gallery -->
   <HorizontalLine direction="left" color="black" width="100%" />
-  <div class="wine-gallery-wrapper overflow-hidden p-5">
-    <div
-      class="wine-gallery flex gap-8 py-20 px-4 overflow-x-auto snap-x snap-mandatory scroll-smooth"
-    >
+  <div class="overflow-hidden px-4 py-2">
+    <div class="flex justify-evenly gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth p-20">
       {
         wines.map((wine: any) => (
           <a
-            class="wine-card shrink-0 snap-center w-[40vw] md:w-[20vw] lg:w-[15vw] flex flex-col transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+            class="shrink-0 snap-center w-40 md:w-48 lg:w-52 flex flex-col transition-all mx-10"
             href="https://www.shop-weinbau-schmuckenschlager.com/"
           >
-            <div class="aspect-2/4 overflow-hidden">
+            <div class=" h-100 overflow-hidden duration-300 hover:-translate-y-2">
               <Image
                 src={wine.image}
                 alt={wine.name}
-                class="w-full h-full object-cover object-start transition-shadow duration-300 hover:[box-shadow:0_8px_16px_rgba(0,0,0,0.2)]"
-                quality={90}
-                format="png"
-                loading=lazy
-                width={700}
+                class="w-full h-full object-cover object-top"
+                quality={85}
+                format="webp"
+                loading="lazy"
+                width={600}
               />
             </div>
-            <div class="mt-4 text-center">
+            <div class="mt-5 text-center">
               <h3 class="text-xl">{wine.name}</h3>
-              <p class="text-gray-600">{wine.year}</p>
+              <p class="text-neutral-500">{wine.year}</p>
             </div>
           </a>
         ))

@@ -5,6 +5,11 @@
         "image": "./images/gemischter_satz_2024.webp"
     },
     {
+        "name": "Rose",
+        "year": 2022,
+        "image": "./images/rose_2022.webp"
+    },
+    {
         "name": "Riesling 2024 CHINA-Edition",
         "year": 2024,
         "image": "./images/riesling_2024_china_edition.webp"
@@ -18,11 +23,6 @@
         "name": "Riesling Sekt brut",
         "year": 2024,
         "image": "./images/riesling_sekt_brut.webp"
-    },
-    {
-        "name": "Rose",
-        "year": 2022,
-        "image": "./images/rose_2022.webp"
     },
     {
         "name": "Weisser Burgunder",
