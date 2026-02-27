@@ -4,7 +4,7 @@ date: 2025-10-25
 cover: ./images/cover.png
 ---
 Das Event "Heuriger meets Party" von Weinbau Schmuckenschlager am Valedritag der jeweiligen Ausschank verspricht eine einzigartige Kombination aus traditioneller Heurigenkultur und pulsierender Partystimmung. In der malerischen Umgebung des Weinguts, bekannt für seine hervorragenden Weine und sein idyllisches Ambiente, lädt das Event ab 22 Uhr zu einem unvergesslichen Abend ein.
-![Valedri Beats](./images/image1.jpg)
+![Valedri Beats](./images/image.avif)
 Mit lokalen DJs an den Turntables erwartet die Gäste eine musikalische Reise, die von entspannten Beats bis hin zu tanzbaren Rhythmen reicht, perfekt abgestimmt auf die stimmungsvolle Kulisse zwischen Reben und Sternenhimmel. Die Veranstaltung zielt darauf ab, ein breites Publikum anzusprechen – von Weinkennern bis hin zu Partygängern, die eine außergewöhnliche Nacht erleben möchten.
 
 Neben der musikalischen Unterhaltung steht natürlich das Weinsortiment des Weinbau Schmuckenschlager im Mittelpunkt. Gäste können sich auf eine Auswahl exquisiter Weine freuen, die von frischen, spritzigen Weißweinen bis hin zu vollmundigen Rotweinen reicht, sorgfältig ausgewählt, um die Palette der regionalen Weinbaukunst widerzuspiegeln. Für diejenigen, die nach etwas Erfrischenderem suchen, werden auch kühle Drinks und kleine Snacks angeboten, die perfekt auf die Weinauswahl abgestimmt sind und das kulinarische Erlebnis abrunden.
