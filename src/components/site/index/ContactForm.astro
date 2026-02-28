@@ -12,7 +12,6 @@
   </p>
 
   <form id="contact-form" class="w-full flex flex-col gap-6">
-    <input type="hidden" name="_email.subject" value="Neue Kontaktanfrage - Weinbau Schmuckenschlager" />
     <label class="flex flex-col text-left text-sm">
       Vorname *
       <input
@@ -121,8 +120,13 @@
         },
         body: JSON.stringify({
           ...data,
-          "_email.subject": "Neue Kontaktanfrage - Weinbau Schmuckenschlager",
-          "_email.from": "Website - Weinbau Schmuckenschlager",
+          _email: {
+            subject: "Neue Kontaktanfrage - Weinbau Schmuckenschlager",
+            from: "Website - Weinbau Schmuckenschlager",
+            template: {
+              title: "Neue Kontaktanfrage",
+            },
+          },
           _botpoison: solution,
         }),
       });

@@ -3,7 +3,9 @@ import HorizontalLine from "../../animation/HorizontalLine.astro";
 ---
 
 <HorizontalLine direction="left" color="black" width="100%" />
-<section class="flex flex-col px-5 py-10 md:flex-row md:px-10 gap-10 items-center md:h-[50vh]">
+<section
+  class="flex flex-col px-5 py-10 md:flex-row md:px-10 gap-10 items-center md:h-[50vh]"
+>
   <div class="flex flex-col justify-center y w-full md:w-6/10">
     <h2>Newsletter</h2>
     <p>Sollen wir dich auf dem Laufenden halten?</p>
@@ -42,9 +44,15 @@ import HorizontalLine from "../../animation/HorizontalLine.astro";
   <div class="flex justify-center items-center w-full md:w-1/10">
     <p class="text-neutral-800">oder</p>
   </div>
-  <div class="flex flex-col justify-start items-center md:justify-center flex-1 md:w-3/10">
+  <div
+    class="flex flex-col justify-start items-center md:justify-center flex-1 md:w-3/10"
+  >
     <h2 class="mb-5 max-md:hidden">WhatsApp</h2>
-    <img class="p-10 w-75 max-md:hidden" src="/whatsapp_qr_code.png" alt="WhatsApp QR Code">
+    <img
+      class="p-10 w-75 max-md:hidden"
+      src="/whatsapp_qr_code.png"
+      alt="WhatsApp QR Code"
+    />
     <a
       href="https://chat.whatsapp.com/EGcTwOEjfAGK1Ts018O19i"
       target="_blank"
@@ -89,8 +97,13 @@ import HorizontalLine from "../../animation/HorizontalLine.astro";
         },
         body: JSON.stringify({
           ...data,
-          "_email.subject": "Neue Newsletteranmeldung",
-          "_email.from": "Website - Weinbau Schmuckenschlager",
+          _email: {
+            subject: "Neue Newsletteranmeldung",
+            from: "Website - Weinbau Schmuckenschlager",
+            template: {
+              title: "Neue Newsletteranmeldung",
+            },
+          },
           _botpoison: solution,
         }),
       });
