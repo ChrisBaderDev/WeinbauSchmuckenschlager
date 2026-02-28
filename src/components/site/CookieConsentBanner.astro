@@ -1,41 +1,57 @@
 ---
 // CookieConsent.astro
 ---
-<div id="cookie-banner" class="hidden fixed bottom-0 left-0 right-0 bg-black text-white p-4 z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-    <p class="py-10 px-5">
-      Wir verwenden Cookies zur Analyse. Mehr dazu in unseren 
-      <a class="underline" href="/datenschutz#cookies">Cookie-Richtlinien</a>.
-    </p>
-    <div class="flex gap-2">
-      <button id="cookie-reject" class="px-4 py-4 border border-white text-sm hover:bg-neutral-800 hover:cursor-pointer">Ablehnen</button>
-      <button id="cookie-accept" class="px-4 py-4 bg-white text-black text-sm hover:bg-neutral-400 hover:cursor-pointer">Akzeptieren</button>
-    </div>
+
+<div
+  id="cookie-banner"
+  class="hidden fixed bottom-0 left-0 right-0 bg-black text-white p-4 z-10 flex flex-col sm:flex-row items-center justify-between gap-4"
+>
+  <p class="py-10 px-5">
+    Wir verwenden Cookies zur Analyse. Mehr dazu in unseren
+    <a class="underline" href="/datenschutz#cookies">Cookie-Richtlinien</a>.
+  </p>
+  <div class="flex gap-2">
+    <button
+      id="cookie-reject"
+      class="px-4 py-4 border border-white text-sm hover:bg-neutral-800 hover:cursor-pointer"
+      >Ablehnen</button
+    >
+    <button
+      id="cookie-accept"
+      class="px-4 py-4 bg-white text-black text-sm hover:bg-neutral-400 hover:cursor-pointer"
+      >Akzeptieren</button
+    >
   </div>
-  
-  <script>
-    const banner = document.getElementById('cookie-banner');
-    const consent = localStorage.getItem('cookie-consent');
-  
-    if (!consent) {
-      banner?.classList.remove('hidden');
-    }
-  
-    if (consent === 'accepted') {
-      loadAnalytics();
-    }
-  
-    document.getElementById('cookie-accept')?.addEventListener('click', () => {
-      localStorage.setItem('cookie-consent', 'accepted');
-      banner?.classList.add('hidden');
-      loadAnalytics();
-    });
-  
-    document.getElementById('cookie-reject')?.addEventListener('click', () => {
-      localStorage.setItem('cookie-consent', 'rejected');
-      banner?.classList.add('hidden');
-    });
-  
-    function loadAnalytics() {
-      // Maybe use this for some analytics later
-    }
-  </script>
+</div>
+
+<script>
+  const banner = document.getElementById("cookie-banner");
+  const consent = localStorage.getItem("cookie-consent");
+
+  if (!consent) {
+    banner?.classList.remove("hidden");
+  }
+
+  if (consent === "accepted") {
+    loadAnalytics();
+  }
+
+  document.getElementById("cookie-accept")?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "accepted");
+    banner?.classList.add("hidden");
+    loadAnalytics();
+  });
+
+  document.getElementById("cookie-reject")?.addEventListener("click", () => {
+    localStorage.setItem("cookie-consent", "rejected");
+    banner?.classList.add("hidden");
+  });
+
+  function loadAnalytics() {
+    const script = document.createElement("script");
+    script.defer = true;
+    script.src = "https://analytics.eigenform.at/script.js";
+    script.dataset.websiteId = "407cdb55-d9e7-465e-a075-b12def8f3db9";
+    document.head.appendChild(script);
+  }
+</script>
