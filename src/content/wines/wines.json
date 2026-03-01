@@ -45,13 +45,13 @@
         "image": "./images/grüner_veltliner_ried_göbling.webp"
     },
     {
-        "name": "Riesling Ried Schreiber 2021",
-        "year": 2017,
+        "name": "Riesling Ried Schreiber",
+        "year": 2021,
         "image": "./images/riesling_ried_schreiber_2021.webp"
     },
     {
-        "name": "Chardonnay 2021",
-        "year": 2021,
+        "name": "Chardonnay",
+        "year": 2024,
         "image": "./images/chardonnay_2024.webp"
     }
 ]
