@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'never',
-  site: 'https://www.weinbau-schmuckenschlager.at',
+  site: 'https://weinbau-schmuckenschlager.at',
   vite: {
       plugins: [tailwindcss()],
       build: {
