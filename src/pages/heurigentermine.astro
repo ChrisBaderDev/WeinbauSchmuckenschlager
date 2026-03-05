@@ -31,6 +31,7 @@ const fullYear = allGermanMonths.map((month) => {
   const match = openMonths.find((m) => m.month === month);
   return match ?? { month, startDate: null, endDate: null, year: currentYear };
 });
+const currentMonthName = allGermanMonths[new Date().getMonth()];
 ---
 
 <BaseLayout
@@ -58,12 +59,10 @@ const fullYear = allGermanMonths.map((month) => {
     >
       <h2 class="mb-5">Ausschank beim Heurigen</h2>
       <p class="mb-10 leading-relaxed">
-        Hier finden Sie alle unsere Öffnungszeiten des Heurigens für das Jahr {
-          new Date().getFullYear()
-        }. Für eine Tischreservierung oder allgemeine Fragen können Sie über <a
-          class="underline"
-          href="/#kontakt">das Kontaktformular</a
-        > eine Nachricht senden. Die Öffnungszeiten des Römerls finden Sie unter
+        Wir freuen uns auf Ihren Besuch! Hier finden Sie alle Heurigentermine
+        für {new Date().getFullYear()}. Tischreservierungen nehmen wir gerne
+        über <a class="underline" href="/#kontakt">das Kontaktformular</a> entgegen.
+        Unsere Römerl-Termine finden Sie unter
         <a class="underline" href="/roemerl">Römerl</a>.
       </p>
       <h3>Adresse</h3>
@@ -125,18 +124,27 @@ const fullYear = allGermanMonths.map((month) => {
   <HorizontalLine direction="left" color="black" width="100%" />
   <section class="flex flex-col items-center p-8 md:p-12 lg:p-16">
     <h2 class="mb-30">Termine</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15 w-full mb-10">
-        {fullYear.map((m) => {
-            const isOpen = m.startDate !== null;
-            return (
-              <div class="group border-b-2 border-neutral-300 pb-6 text-center hover:border-black transition-colors duration-300">
-                <h3 class="text-xl mb-2">{m.month}</h3>
-                <p class="text-md text-neutral-600 transition-colors duration-300 group-hover:text-black">
-                  {isOpen ? `${m.startDate} - ${m.endDate}` : "Nicht ausg'steckt"}
-                </p>
-              </div>
-            );
-          })}
+    <div
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15 w-full mb-10"
+    >
+      {
+        fullYear.map((m) => {
+          const isOpen = m.startDate !== null;
+          const isCurrent = m.month === currentMonthName;
+          return (
+            <div
+              class={`group border-b-2 pb-6 text-center transition-colors duration-300 ${isCurrent ? "border-black" : "border-neutral-300 hover:border-black"}`}
+            >
+              <h3 class={`text-xl mb-2 ${isCurrent ? "font-bold" : ""}`}>
+                {m.month}
+              </h3>
+              <p class="text-md text-neutral-600 transition-colors duration-300 group-hover:text-black">
+                {isOpen ? `${m.startDate} - ${m.endDate}` : "Nicht ausg'steckt"}
+              </p>
+            </div>
+          );
+        })
+      }
     </div>
   </section>
 </BaseLayout>
