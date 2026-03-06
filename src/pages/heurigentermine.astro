@@ -39,7 +39,7 @@ const currentMonthName = allGermanMonths[new Date().getMonth()];
   description={`Heurigentermine für den Weinbau Schmuckenschlager im Jahr ${new Date().getFullYear()}`}
 >
   <!-- HEADING -->
-  <section class="py-16 md:py-24 text-center">
+  <section class="px-5 py-16 md:py-24 text-center">
     <h1 class="font-normal">Heurigentermine - {new Date().getFullYear()}</h1>
   </section>
   <HorizontalLine direction="left" color="black" width="100%" />
@@ -59,10 +59,10 @@ const currentMonthName = allGermanMonths[new Date().getMonth()];
     >
       <h2 class="mb-5">Ausschank beim Heurigen</h2>
       <p class="mb-10 leading-relaxed">
-        Wir freuen uns auf Ihren Besuch! Hier finden Sie alle Heurigentermine
+        Wir freuen uns auf deinen Besuch! Hier findest du alle Heurigentermine
         für {new Date().getFullYear()}. Tischreservierungen nehmen wir gerne
         über <a class="underline" href="/#kontakt">das Kontaktformular</a> entgegen.
-        Unsere Römerl-Termine finden Sie unter
+        Unsere Römerl-Termine findest du unter
         <a class="underline" href="/roemerl">Römerl</a>.
       </p>
       <h3>Adresse</h3>
@@ -123,9 +123,9 @@ const currentMonthName = allGermanMonths[new Date().getMonth()];
   </section>
   <HorizontalLine direction="left" color="black" width="100%" />
   <section class="flex flex-col items-center p-8 md:p-12 lg:p-16">
-    <h2 class="mb-30">Termine</h2>
+    <h2 class="mt-10 mb-15 md:mt-0 md:mb-20">Termine</h2>
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15 w-full mb-10"
+      class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-15 w-full mb-10"
     >
       {
         fullYear.map((m) => {
