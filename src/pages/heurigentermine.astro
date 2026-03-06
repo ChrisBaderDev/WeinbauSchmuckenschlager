@@ -1,0 +1,150 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalLine from "../components/animation/HorizontalLine.astro";
+import Ausschank from "../assets/images/ausschank.jpg";
+import { Image } from "astro:assets";
+import VerticalLine from "../components/animation/VerticalLine.astro";
+import { getEntry } from "astro:content";
+
+const openingData = await getEntry("openingMonths", "openingMonths");
+const allMonths = openingData?.data ?? [];
+
+const allGermanMonths = [
+  "Jänner",
+  "Februar",
+  "März",
+  "April",
+  "Mai",
+  "Juni",
+  "Juli",
+  "August",
+  "September",
+  "Oktober",
+  "November",
+  "Dezember",
+];
+
+const currentYear = new Date().getFullYear();
+const openMonths = allMonths.filter((m) => m.year === currentYear);
+
+const fullYear = allGermanMonths.map((month) => {
+  const match = openMonths.find((m) => m.month === month);
+  return match ?? { month, startDate: null, endDate: null, year: currentYear };
+});
+const currentMonthName = allGermanMonths[new Date().getMonth()];
+---
+
+<BaseLayout
+  title="Heurigentermine | Weinbau Schmuckenschlager"
+  description={`Heurigentermine für den Weinbau Schmuckenschlager im Jahr ${new Date().getFullYear()}`}
+>
+  <!-- HEADING -->
+  <section class="px-5 py-16 md:py-24 text-center">
+    <h1 class="font-normal">Heurigentermine - {new Date().getFullYear()}</h1>
+  </section>
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <!-- HEURIGENTERMINE -->
+  <section class="flex flex-col xl:flex-row mx-auto">
+    <div class="w-full xl:w-1/2">
+      <Image
+        class="w-full h-full object-cover"
+        src={Ausschank}
+        alt={"Schmuckenschlager in der Ausschank"}
+        width={800}
+      />
+    </div>
+    <VerticalLine />
+    <div
+      class="w-full xl:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-center"
+    >
+      <h2 class="mb-5">Ausschank beim Heurigen</h2>
+      <p class="mb-10 leading-relaxed">
+        Wir freuen uns auf deinen Besuch! Hier findest du alle Heurigentermine
+        für {new Date().getFullYear()}. Tischreservierungen nehmen wir gerne
+        über <a class="underline" href="/#kontakt">das Kontaktformular</a> entgegen.
+        Unsere Römerl-Termine findest du unter
+        <a class="underline" href="/roemerl">Römerl</a>.
+      </p>
+      <h3>Adresse</h3>
+      <p>
+        Agnesstraße 46<br />
+        3400 Klosterneuburg
+      </p>
+      <div class="flex gap-4 mt-3">
+        <a
+          href="https://maps.app.goo.gl/CHBeuZCfvaheb4cb9"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 text-neutral-700 hover:text-black hover:underline transition-colors duration-300"
+          title="In Google Maps öffnen"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path
+              d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"
+            ></path>
+            <circle cx="12" cy="9" r="2.5"></circle>
+          </svg>
+          <span class="text-sm">Google Maps</span>
+        </a>
+        <a
+          href="https://maps.apple/p/4oZFJPPWUpN.Jx"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2 text-neutral-700 hover:text-black hover:underline transition-colors duration-300"
+          title="In Apple Maps öffnen"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+          </svg>
+          <span class="text-sm">Apple Maps</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <HorizontalLine direction="left" color="black" width="100%" />
+  <section class="flex flex-col items-center p-8 md:p-12 lg:p-16">
+    <h2 class="mt-10 mb-15 md:mt-0 md:mb-20">Termine</h2>
+    <div
+      class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-15 w-full mb-10"
+    >
+      {
+        fullYear.map((m) => {
+          const isOpen = m.startDate !== null;
+          const isCurrent = m.month === currentMonthName;
+          return (
+            <div
+              class={`group border-b-2 pb-6 text-center transition-colors duration-300 ${isCurrent ? "border-black" : "border-neutral-300 hover:border-black"}`}
+            >
+              <h3 class={`text-xl mb-2 ${isCurrent ? "font-bold" : ""}`}>
+                {m.month}
+              </h3>
+              <p class="text-md text-neutral-600 transition-colors duration-300 group-hover:text-black">
+                {isOpen ? `${m.startDate} - ${m.endDate}` : "Nicht ausg'steckt"}
+              </p>
+            </div>
+          );
+        })
+      }
+    </div>
+  </section>
+</BaseLayout>
